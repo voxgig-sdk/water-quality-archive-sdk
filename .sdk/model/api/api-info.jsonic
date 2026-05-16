@@ -1,0 +1,28 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        name: "Environment Agency"
+        url: "https://environment.data.gov.uk/water-quality/view/landing"
+      }
+      description: "The Water Quality Archive provides comprehensive data on water quality measurements from various sampling points across England including coastal, river, lake, and groundwater sources. It supports compliance assessment, pollution investigation, and environmental monitoring with data available dating back to 2000."
+      license: {
+        name: "Open Government Licence v3.0"
+        url: "http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+      }
+      servers: [
+        {
+          description: "Production server"
+          url: "https://environment.data.gov.uk/water-quality"
+        }
+      ]
+      title: "Water Quality Archive"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

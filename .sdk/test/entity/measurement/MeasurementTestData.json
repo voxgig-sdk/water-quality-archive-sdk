@@ -1,0 +1,45 @@
+{
+  "existing": {
+    "measurement": {
+      "MEASUREMENT00": {
+        "determinand": {},
+        "id": "MEASUREMENT00",
+        "purpose": {},
+        "result": 73,
+        "result_qualifier": {},
+        "sample": {},
+        "sampling_point": {}
+      },
+      "MEASUREMENT01": {
+        "determinand": {},
+        "id": "MEASUREMENT01",
+        "purpose": {},
+        "result": 143,
+        "result_qualifier": {},
+        "sample": {},
+        "sampling_point": {}
+      },
+      "MEASUREMENT02": {
+        "determinand": {},
+        "id": "MEASUREMENT02",
+        "purpose": {},
+        "result": 213,
+        "result_qualifier": {},
+        "sample": {},
+        "sampling_point": {}
+      }
+    }
+  },
+  "new": {
+    "measurement": {
+      "measurement_ref01": {
+        "determinand": {},
+        "purpose": {},
+        "result": 283,
+        "result_qualifier": {},
+        "sample": {},
+        "sampling_point": {}
+      }
+    }
+  }
+}

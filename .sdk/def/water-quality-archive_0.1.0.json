@@ -1,0 +1,366 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Water Quality Archive",
+    "description": "The Water Quality Archive provides comprehensive data on water quality measurements from various sampling points across England including coastal, river, lake, and groundwater sources. It supports compliance assessment, pollution investigation, and environmental monitoring with data available dating back to 2000.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Environment Agency",
+      "url": "https://environment.data.gov.uk/water-quality/view/landing"
+    },
+    "license": {
+      "name": "Open Government Licence v3.0",
+      "url": "http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://environment.data.gov.uk/water-quality",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/data/measurement": {
+      "get": {
+        "summary": "Get water quality measurements",
+        "description": "Retrieve water quality measurement data from various sampling points across England including coastal, river, lake, and groundwater sources. Data is available from 2000 onwards.",
+        "operationId": "getMeasurements",
+        "tags": [
+          "Measurements"
+        ],
+        "parameters": [
+          {
+            "name": "samplingPoint",
+            "in": "query",
+            "description": "Filter by sampling point identifier",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "determinand",
+            "in": "query",
+            "description": "Filter by determinand (water quality parameter) identifier",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "startDate",
+            "in": "query",
+            "description": "Start date for measurement period (ISO 8601 format)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "description": "End date for measurement period (ISO 8601 format)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "area",
+            "in": "query",
+            "description": "Filter by geographical area",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "waterBody",
+            "in": "query",
+            "description": "Filter by water body identifier",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "purpose",
+            "in": "query",
+            "description": "Filter by monitoring purpose (e.g., compliance, investigation)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "compliance",
+                "investigation",
+                "surveillance",
+                "operational"
+              ]
+            }
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "description": "Response format",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "json",
+                "csv",
+                "xml"
+              ],
+              "default": "json"
+            }
+          },
+          {
+            "name": "_limit",
+            "in": "query",
+            "description": "Maximum number of results to return",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 10000,
+              "default": 100
+            }
+          },
+          {
+            "name": "_offset",
+            "in": "query",
+            "description": "Number of results to skip for pagination",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with water quality measurements",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "@context": {
+                      "type": "string",
+                      "description": "JSON-LD context"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "publisher": {
+                          "type": "string"
+                        },
+                        "licence": {
+                          "type": "string"
+                        },
+                        "documentation": {
+                          "type": "string"
+                        },
+                        "version": {
+                          "type": "string"
+                        },
+                        "limit": {
+                          "type": "integer"
+                        },
+                        "offset": {
+                          "type": "integer"
+                        },
+                        "count": {
+                          "type": "integer"
+                        }
+                      }
+                    },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "@id": {
+                            "type": "string",
+                            "description": "Unique identifier for the measurement"
+                          },
+                          "samplingPoint": {
+                            "type": "object",
+                            "properties": {
+                              "@id": {
+                                "type": "string"
+                              },
+                              "label": {
+                                "type": "string"
+                              },
+                              "notation": {
+                                "type": "string"
+                              },
+                              "lat": {
+                                "type": "number"
+                              },
+                              "long": {
+                                "type": "number"
+                              },
+                              "easting": {
+                                "type": "integer"
+                              },
+                              "northing": {
+                                "type": "integer"
+                              }
+                            }
+                          },
+                          "determinand": {
+                            "type": "object",
+                            "properties": {
+                              "@id": {
+                                "type": "string"
+                              },
+                              "label": {
+                                "type": "string"
+                              },
+                              "notation": {
+                                "type": "string"
+                              },
+                              "definition": {
+                                "type": "string"
+                              },
+                              "unit": {
+                                "type": "object",
+                                "properties": {
+                                  "label": {
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "result": {
+                            "type": "number",
+                            "description": "Measurement result value"
+                          },
+                          "resultQualifier": {
+                            "type": "object",
+                            "properties": {
+                              "notation": {
+                                "type": "string"
+                              },
+                              "label": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "sample": {
+                            "type": "object",
+                            "properties": {
+                              "sampleDateTime": {
+                                "type": "string",
+                                "format": "date-time"
+                              },
+                              "sampledMaterialType": {
+                                "type": "object",
+                                "properties": {
+                                  "label": {
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "purpose": {
+                            "type": "object",
+                            "properties": {
+                              "label": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "text/csv": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No data found for the specified criteria",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Measurements",
+      "description": "Water quality measurement data endpoints"
+    }
+  ],
+  "externalDocs": {
+    "description": "Full API Documentation",
+    "url": "https://environment.data.gov.uk/water-quality/view/landing"
+  }
+}
