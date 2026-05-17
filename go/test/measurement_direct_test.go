@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/water-quality-archive-sdk"
-	"github.com/voxgig-sdk/water-quality-archive-sdk/core"
+	sdk "github.com/voxgig-sdk/water-quality-archive-sdk/go"
+	"github.com/voxgig-sdk/water-quality-archive-sdk/go/core"
 )
 
 func TestMeasurementDirect(t *testing.T) {

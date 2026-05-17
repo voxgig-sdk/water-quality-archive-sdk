@@ -12,9 +12,9 @@ import (
 	"sync"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/water-quality-archive-sdk"
+	sdk "github.com/voxgig-sdk/water-quality-archive-sdk/go"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/water-quality-archive-sdk/go/utility/struct"
 )
 
 var envLocalOnce sync.Once

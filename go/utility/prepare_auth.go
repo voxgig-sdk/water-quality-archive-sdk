@@ -1,9 +1,9 @@
 package utility
 
 import (
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/water-quality-archive-sdk/go/utility/struct"
 
-	"github.com/voxgig-sdk/water-quality-archive-sdk/core"
+	"github.com/voxgig-sdk/water-quality-archive-sdk/go/core"
 )
 
 const headerAuth = "authorization"

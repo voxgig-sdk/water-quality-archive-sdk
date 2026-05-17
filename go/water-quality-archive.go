@@ -1,10 +1,10 @@
 package voxgigwaterqualityarchivesdk
 
 import (
-	"github.com/voxgig-sdk/water-quality-archive-sdk/core"
-	"github.com/voxgig-sdk/water-quality-archive-sdk/entity"
-	"github.com/voxgig-sdk/water-quality-archive-sdk/feature"
-	_ "github.com/voxgig-sdk/water-quality-archive-sdk/utility"
+	"github.com/voxgig-sdk/water-quality-archive-sdk/go/core"
+	"github.com/voxgig-sdk/water-quality-archive-sdk/go/entity"
+	"github.com/voxgig-sdk/water-quality-archive-sdk/go/feature"
+	_ "github.com/voxgig-sdk/water-quality-archive-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

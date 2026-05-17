@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/water-quality-archive-sdk"
-	"github.com/voxgig-sdk/water-quality-archive-sdk/core"
+	sdk "github.com/voxgig-sdk/water-quality-archive-sdk/go"
+	"github.com/voxgig-sdk/water-quality-archive-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/water-quality-archive-sdk/go/utility/struct"
 )
 
 func TestMeasurementEntity(t *testing.T) {

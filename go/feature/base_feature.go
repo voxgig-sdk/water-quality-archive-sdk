@@ -1,7 +1,7 @@
 package feature
 
 import (
-	"github.com/voxgig-sdk/water-quality-archive-sdk/core"
+	"github.com/voxgig-sdk/water-quality-archive-sdk/go/core"
 )
 
 type BaseFeature struct {
