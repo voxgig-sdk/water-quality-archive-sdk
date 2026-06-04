@@ -113,7 +113,6 @@ function basicSetup(extra?: any) {
     'WATER_QUALITY_ARCHIVE_TEST_MEASUREMENT_ENTID': idmap,
     'WATER_QUALITY_ARCHIVE_TEST_LIVE': 'FALSE',
     'WATER_QUALITY_ARCHIVE_TEST_EXPLAIN': 'FALSE',
-    'WATER_QUALITY_ARCHIVE_APIKEY': 'NONE',
   })
 
   idmap = env['WATER_QUALITY_ARCHIVE_TEST_MEASUREMENT_ENTID']
@@ -123,7 +122,6 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new WaterQualityArchiveSDK(merge([
       {
-        apikey: env.WATER_QUALITY_ARCHIVE_APIKEY,
       },
       extra
     ]))

@@ -61,14 +61,12 @@ def _measurement_direct_setup(mockres):
     env = runner.env_override({
         "WATERQUALITYARCHIVE_TEST_MEASUREMENT_ENTID": {},
         "WATERQUALITYARCHIVE_TEST_LIVE": "FALSE",
-        "WATERQUALITYARCHIVE_APIKEY": "NONE",
     })
 
     live = env.get("WATERQUALITYARCHIVE_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
-            "apikey": env.get("WATERQUALITYARCHIVE_APIKEY"),
         }
         client = WaterQualityArchiveSDK(merged_opts)
         return {

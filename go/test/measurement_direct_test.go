@@ -93,14 +93,12 @@ func measurementDirectSetup(mockres any) *measurementDirectSetupResult {
 	env := envOverride(map[string]any{
 		"WATERQUALITYARCHIVE_TEST_MEASUREMENT_ENTID": map[string]any{},
 		"WATERQUALITYARCHIVE_TEST_LIVE":    "FALSE",
-		"WATERQUALITYARCHIVE_APIKEY":       "NONE",
 	})
 
 	live := env["WATERQUALITYARCHIVE_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["WATERQUALITYARCHIVE_APIKEY"],
 		}
 		client := sdk.NewWaterQualityArchiveSDK(mergedOpts)
 

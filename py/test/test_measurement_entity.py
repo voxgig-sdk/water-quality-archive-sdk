@@ -92,7 +92,6 @@ def _measurement_basic_setup(extra):
         "WATERQUALITYARCHIVE_TEST_MEASUREMENT_ENTID": idmap,
         "WATERQUALITYARCHIVE_TEST_LIVE": "FALSE",
         "WATERQUALITYARCHIVE_TEST_EXPLAIN": "FALSE",
-        "WATERQUALITYARCHIVE_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +102,6 @@ def _measurement_basic_setup(extra):
     if env.get("WATERQUALITYARCHIVE_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("WATERQUALITYARCHIVE_APIKEY"),
             },
             extra or {},
         ])

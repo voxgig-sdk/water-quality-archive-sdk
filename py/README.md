@@ -23,12 +23,9 @@ loading a specific record.
 ### 1. Create a client
 
 ```python
-import os
 from waterqualityarchive_sdk import WaterQualityArchiveSDK
 
-client = WaterQualityArchiveSDK({
-    "apikey": os.environ.get("WATER-QUALITY-ARCHIVE_APIKEY"),
-})
+client = WaterQualityArchiveSDK({})
 ```
 
 ### 2. List measurements
@@ -121,7 +118,6 @@ Create a `.env.local` file at the project root:
 
 ```
 WATER-QUALITY-ARCHIVE_TEST_LIVE=TRUE
-WATER-QUALITY-ARCHIVE_APIKEY=<your-key>
 ```
 
 Then run:
@@ -145,7 +141,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `str` | API key for authentication. |
 | `base` | `str` | Base URL of the API server. |
 | `prefix` | `str` | URL path prefix prepended to all requests. |
 | `suffix` | `str` | URL path suffix appended to all requests. |
