@@ -119,6 +119,7 @@ func measurementBasicSetup(extra map[string]any) *entityTestSetup {
 		"WATERQUALITYARCHIVE_TEST_MEASUREMENT_ENTID": idmap,
 		"WATERQUALITYARCHIVE_TEST_LIVE":      "FALSE",
 		"WATERQUALITYARCHIVE_TEST_EXPLAIN":   "FALSE",
+		"WATERQUALITYARCHIVE_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["WATERQUALITYARCHIVE_TEST_MEASUREMENT_ENTID"])
@@ -129,6 +130,7 @@ func measurementBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["WATERQUALITYARCHIVE_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
+				"apikey": env["WATERQUALITYARCHIVE_APIKEY"],
 			},
 			extra,
 		})

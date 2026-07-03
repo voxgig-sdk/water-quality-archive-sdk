@@ -68,12 +68,14 @@ function measurement_direct_setup($mockres)
     $env = Runner::env_override([
         "WATERQUALITYARCHIVE_TEST_MEASUREMENT_ENTID" => [],
         "WATERQUALITYARCHIVE_TEST_LIVE" => "FALSE",
+        "WATERQUALITYARCHIVE_APIKEY" => "NONE",
     ]);
 
     $live = $env["WATERQUALITYARCHIVE_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
+            "apikey" => $env["WATERQUALITYARCHIVE_APIKEY"],
         ];
         $client = new WaterQualityArchiveSDK($merged_opts);
         return [

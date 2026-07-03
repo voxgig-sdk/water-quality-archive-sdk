@@ -1,16 +1,8 @@
 # WaterQualityArchive SDK
 
-Open access to water quality sampling data for England since 2000, published by the Environment Agency
+Water Quality Archive client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Water Quality Archive
-
-The Water Quality Archive is a public dataset and API run by the [Environment Agency](https://environment.data.gov.uk/water-quality), part of the UK Department for Environment, Food & Rural Affairs (DEFRA). It exposes water quality sampling data collected across England since the year 2000, covering coastal, river, lake and groundwater sources.
-
-The archive is primarily used for compliance assessment, pollution investigation and environmental monitoring. Records are organised around sampling points and the measurements taken at them.
-
-The service is read-only and does not require authentication. CORS is not enabled, so browser-side calls from another origin may be blocked — server-side or proxied access is typically used. See the [API documentation](https://environment.data.gov.uk/water-quality/api-docs) for the full set of resources and query parameters.
 
 ## Try it
 
@@ -44,29 +36,31 @@ gem install water-quality-archive-sdk
 luarocks install water-quality-archive-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { WaterQualityArchiveSDK } from 'water-quality-archive'
 
-const client = new WaterQualityArchiveSDK({})
+const client = new WaterQualityArchiveSDK({
+  apikey: process.env.WATER-QUALITY-ARCHIVE_APIKEY,
+})
 
 // List all measurements
 const measurements = await client.Measurement().list()
+console.log(measurements.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -96,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Measurement** | An individual water quality observation recorded at a sampling point, such as a determinand value with its units and sample date, returned by the archive's measurement and sample resources. | `/data/measurement` |
+| **Measurement** |  | `/data/measurement` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -106,12 +100,16 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from waterqualityarchive_sdk import WaterQualityArchiveSDK
 
-client = WaterQualityArchiveSDK({})
+client = WaterQualityArchiveSDK({
+    "apikey": os.environ.get("WATER-QUALITY-ARCHIVE_APIKEY"),
+})
 
 # List all measurements
-measurements, err = client.Measurement(None).list(None, None)
+measurements, err = client.Measurement().list()
+print(measurements)
 ```
 
 ### PHP
@@ -120,10 +118,13 @@ measurements, err = client.Measurement(None).list(None, None)
 <?php
 require_once 'waterqualityarchive_sdk.php';
 
-$client = new WaterQualityArchiveSDK([]);
+$client = new WaterQualityArchiveSDK([
+    "apikey" => getenv("WATER-QUALITY-ARCHIVE_APIKEY"),
+]);
 
 // List all measurements
-[$measurements, $err] = $client->Measurement(null)->list(null, null);
+[$measurements, $err] = $client->Measurement()->list();
+print_r($measurements);
 ```
 
 ### Golang
@@ -131,10 +132,13 @@ $client = new WaterQualityArchiveSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/water-quality-archive-sdk/go"
 
-client := sdk.NewWaterQualityArchiveSDK(map[string]any{})
+client := sdk.NewWaterQualityArchiveSDK(map[string]any{
+    "apikey": os.Getenv("WATER-QUALITY-ARCHIVE_APIKEY"),
+})
 
 // List all measurements
 measurements, err := client.Measurement(nil).List(nil, nil)
+fmt.Println(measurements)
 ```
 
 ### Ruby
@@ -142,10 +146,13 @@ measurements, err := client.Measurement(nil).List(nil, nil)
 ```ruby
 require_relative "WaterQualityArchive_sdk"
 
-client = WaterQualityArchiveSDK.new({})
+client = WaterQualityArchiveSDK.new({
+  "apikey" => ENV["WATER-QUALITY-ARCHIVE_APIKEY"],
+})
 
 # List all measurements
-measurements, err = client.Measurement(nil).list(nil, nil)
+measurements, err = client.Measurement().list
+puts measurements
 ```
 
 ### Lua
@@ -153,10 +160,13 @@ measurements, err = client.Measurement(nil).list(nil, nil)
 ```lua
 local sdk = require("water-quality-archive_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("WATER-QUALITY-ARCHIVE_APIKEY"),
+})
 
 -- List all measurements
-local measurements, err = client:Measurement(nil):list(nil, nil)
+local measurements, err = client:Measurement():list()
+print(measurements)
 ```
 
 ## Unit testing in offline mode
@@ -175,25 +185,21 @@ const result = await client.Measurement().load({ id: 'test01' })
 ### Python
 
 ```python
-client = WaterQualityArchiveSDK.test(None, None)
-result, err = client.Measurement(None).load(
-    {"id": "test01"}, None
-)
+client = WaterQualityArchiveSDK.test()
+result, err = client.Measurement().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = WaterQualityArchiveSDK::test(null, null);
-[$result, $err] = $client->Measurement(null)->load(
-    ["id" => "test01"], null
-);
+$client = WaterQualityArchiveSDK::test();
+[$result, $err] = $client->Measurement()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Measurement(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -202,19 +208,15 @@ result, err := client.Measurement(nil).Load(
 ### Ruby
 
 ```ruby
-client = WaterQualityArchiveSDK.test(nil, nil)
-result, err = client.Measurement(nil).load(
-  { "id" => "test01" }, nil
-)
+client = WaterQualityArchiveSDK.test
+result, err = client.Measurement().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Measurement(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Measurement():load({ id = "test01" })
 ```
 
 ## How it works
@@ -318,16 +320,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Water Quality Archive
-
-- Upstream: [https://environment.data.gov.uk/water-quality](https://environment.data.gov.uk/water-quality)
-- API docs: [https://environment.data.gov.uk/water-quality/api-docs](https://environment.data.gov.uk/water-quality/api-docs)
-
-- Data is published under the [Open Government Licence v3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).
-- Source attribution: Environment Agency and the Department for Environment, Food & Rural Affairs (DEFRA), Crown Copyright.
-- You are free to copy, adapt and redistribute the data, including commercially, provided you acknowledge the source.
-- Some linked content may be subject to other terms — check the source page for exceptions.
 
 ---
 
