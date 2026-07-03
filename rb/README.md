@@ -10,13 +10,13 @@ The Ruby SDK for the WaterQualityArchive API — an entity-oriented client using
 
 ## Install
 ```bash
-gem install water-quality-archive-sdk
+gem install voxgig-sdk-water-quality-archive
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "water-quality-archive-sdk"
+gem "voxgig-sdk-water-quality-archive"
 ```
 
 Then run:

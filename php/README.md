@@ -10,7 +10,7 @@ The PHP SDK for the WaterQualityArchive API — an entity-oriented client using 
 
 ## Install
 ```bash
-composer require voxgig/water-quality-archive-sdk
+composer require voxgig-sdk/water-quality-archive
 ```
 
 

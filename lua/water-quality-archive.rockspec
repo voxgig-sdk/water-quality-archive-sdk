@@ -8,12 +8,14 @@ source = {
   dir = "water-quality-archive-sdk/lua"
 }
 description = {
-  summary = "WaterQualityArchive SDK for Lua",
-  license = "MIT"
+  summary = "Unofficial generated Lua SDK for the Water Quality Archive public API. Not affiliated with or endorsed by the upstream API provider.",
+  homepage = "https://github.com/voxgig-sdk/water-quality-archive-sdk",
+  issues_url = "https://github.com/voxgig-sdk/water-quality-archive-sdk/issues",
+  license = "MIT",
+  labels = { "voxgig", "sdk", "generated-sdk", "openapi", "api-client", "water-quality-archive" }
 }
 dependencies = {
   "lua >= 5.3",
-  "dkjson >= 2.5",
   "dkjson >= 2.5",
 }
 build = {

@@ -10,7 +10,7 @@ The Lua SDK for the WaterQualityArchive API — an entity-oriented client using 
 
 ## Install
 ```bash
-luarocks install water-quality-archive-sdk
+luarocks install voxgig-sdk-water-quality-archive
 ```
 
 If the module is not yet published, add the source directory to

@@ -10,7 +10,7 @@ The TypeScript SDK for the WaterQualityArchive API — a type-safe, entity-orien
 
 ## Install
 ```bash
-npm install water-quality-archive
+npm install @voxgig-sdk/water-quality-archive
 ```
 ## Tutorial: your first API call
 

@@ -10,7 +10,7 @@ The Python SDK for the WaterQualityArchive API — an entity-oriented client fol
 
 ## Install
 ```bash
-pip install water-quality-archive-sdk
+pip install voxgig-sdk-water-quality-archive
 ```
 
 Or install from source:
