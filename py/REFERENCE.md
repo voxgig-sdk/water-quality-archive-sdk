@@ -80,7 +80,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## MeasurementEntity
 
 ```python
-measurement = client.measurement
+measurement = client.Measurement()
 ```
 
 ### Fields
@@ -102,7 +102,9 @@ measurement = client.measurement
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.measurement.list({})
+results = client.Measurement().list({})
+for measurement in results:
+    print(measurement)
 ```
 
 ### Common Methods

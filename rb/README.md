@@ -28,16 +28,14 @@ require_relative "WaterQualityArchive_sdk"
 client = WaterQualityArchiveSDK.new
 ```
 
-### 2. List measurements
+### 2. List measurement records
 
 ```ruby
 begin
-  result = client.measurement.list
-  if result.is_a?(Array)
-    result.each do |item|
-      d = item.data_get
-      puts "#{d["id"]} #{d["name"]}"
-    end
+  # list returns an Array of Measurement records — iterate directly.
+  measurements = client.Measurement.list
+  measurements.each do |item|
+    puts "#{item["id"]} #{item["name"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -85,13 +83,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = WaterQualityArchiveSDK.test
+client = WaterQualityArchiveSDK.test({
+  "entity" => { "measurement" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.measurement.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+measurement = client.Measurement.load({ "id" => "test01" })
+puts measurement
 ```
 
 ### Use a custom fetch function
@@ -229,7 +231,7 @@ API path: `/data/measurement`
 
 ### Measurement
 
-Create an instance: `const measurement = client.measurement`
+Create an instance: `measurement = client.Measurement`
 
 #### Operations
 
@@ -251,8 +253,9 @@ Create an instance: `const measurement = client.measurement`
 
 #### Example: List
 
-```ts
-const measurements = await client.measurement.list()
+```ruby
+# list returns an Array of Measurement records (raises on error).
+measurements = client.Measurement.list
 ```
 
 
@@ -327,7 +330,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-measurement = client.measurement
+measurement = client.Measurement
 measurement.load({ "id" => "example_id" })
 
 # measurement.data_get now returns the loaded measurement data

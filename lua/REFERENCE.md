@@ -83,7 +83,7 @@ same parameters as `direct()`.
 ## MeasurementEntity
 
 ```lua
-local measurement = client:measurement(nil)
+local measurement = client:Measurement(nil)
 ```
 
 ### Fields
@@ -105,7 +105,7 @@ local measurement = client:measurement(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:measurement():list()
+local results, err = client:Measurement():list()
 ```
 
 ### Common Methods

@@ -233,10 +233,10 @@ class WaterQualityArchiveSDK
 
     private $_measurement = null;
 
-    // Idiomatic facade: $client->measurement()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Measurement() (PHP method
-    // names are case-insensitive).
-    public function measurement($data = null)
+    // Canonical facade: $client->Measurement()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->measurement()
+    // resolves here too.
+    public function Measurement($data = null)
     {
         require_once __DIR__ . '/entity/measurement_entity.php';
         if ($data === null) {

@@ -86,7 +86,7 @@ same parameters as `direct()`. Raises on error.
 ## MeasurementEntity
 
 ```ruby
-measurement = client.measurement
+measurement = client.Measurement
 ```
 
 ### Fields
@@ -108,7 +108,7 @@ measurement = client.measurement
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.measurement.list(nil)
+results = client.Measurement.list(nil)
 ```
 
 ### Common Methods

@@ -85,7 +85,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## MeasurementEntity
 
 ```php
-$measurement = $client->measurement();
+$measurement = $client->Measurement();
 ```
 
 ### Fields
@@ -107,7 +107,7 @@ $measurement = $client->measurement();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->measurement()->list([]);
+$results = $client->Measurement()->list([]);
 ```
 
 ### Common Methods

@@ -29,18 +29,16 @@ require_once 'waterqualityarchive_sdk.php';
 $client = new WaterQualityArchiveSDK();
 ```
 
-### 2. List measurements
+### 2. List measurement records
 
 ```php
 try {
-    $result = $client->measurement()->list();
-    if (is_array($result)) {
-        foreach ($result as $item) {
-            $d = $item->data_get();
-            echo $d["id"] . " " . $d["name"] . "\n";
-        }
+    // list() returns an array of Measurement records — iterate directly.
+    $measurements = $client->Measurement()->list();
+    foreach ($measurements as $item) {
+        echo $item["id"] . " " . $item["name"] . "\n";
     }
-} catch (\Exception $err) {
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -86,13 +84,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = WaterQualityArchiveSDK::test();
+$client = WaterQualityArchiveSDK::test([
+    "entity" => ["measurement" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->measurement()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$measurement = $client->Measurement()->load(["id" => "test01"]);
+print_r($measurement);
 ```
 
 ### Use a custom fetch function
@@ -234,7 +236,7 @@ API path: `/data/measurement`
 
 ### Measurement
 
-Create an instance: `const measurement = client.measurement`
+Create an instance: `$measurement = $client->Measurement();`
 
 #### Operations
 
@@ -256,8 +258,9 @@ Create an instance: `const measurement = client.measurement`
 
 #### Example: List
 
-```ts
-const measurements = await client.measurement.list()
+```php
+// list() returns an array of Measurement records (throws on error).
+$measurements = $client->Measurement()->list();
 ```
 
 
@@ -332,7 +335,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$measurement = $client->measurement();
+$measurement = $client->Measurement();
 $measurement->load(["id" => "example_id"]);
 
 // $measurement->dataGet() now returns the loaded measurement data

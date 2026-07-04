@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:measurement():list() / client:measurement():load({ id = ... })
-function WaterQualityArchiveSDK:measurement(data)
+-- Idiomatic facade: client:Measurement():list() / client:Measurement():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function WaterQualityArchiveSDK:Measurement(data)
   local EntityMod = require("entity.measurement_entity")
   if data == nil then
     if self._measurement == nil then
@@ -253,12 +254,6 @@ function WaterQualityArchiveSDK:measurement(data)
     end
     return self._measurement
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:measurement() instead.
-function WaterQualityArchiveSDK:Measurement(data)
-  local EntityMod = require("entity.measurement_entity")
   return EntityMod.new(self, data)
 end
 

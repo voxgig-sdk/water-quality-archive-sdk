@@ -109,7 +109,7 @@ Alias for `WaterQualityArchiveSDK.test()`.
 ## MeasurementEntity
 
 ```ts
-const measurement = client.measurement
+const measurement = client.Measurement()
 ```
 
 ### Fields
@@ -131,7 +131,7 @@ const measurement = client.measurement
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.measurement.list()
+const results = await client.Measurement().list()
 ```
 
 ### Common Methods

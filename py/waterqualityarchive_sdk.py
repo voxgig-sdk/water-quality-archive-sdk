@@ -220,25 +220,15 @@ class WaterQualityArchiveSDK:
         }
 
 
-    @property
-    def measurement(self):
-        """Idiomatic facade: client.measurement.list() / client.measurement.load({"id": ...})."""
-        from entity.measurement_entity import MeasurementEntity
-        cached = getattr(self, "_measurement", None)
-        if cached is None:
-            cached = MeasurementEntity(self, None)
-            self._measurement = cached
-        return cached
-
-    def Measurement(self, data=None):
-        # Deprecated: use client.measurement instead.
+    def Measurement(self, data=None) -> "MeasurementEntity":
+        """Entity factory: client.Measurement().list({}) / client.Measurement().load({"id": ...})."""
         from entity.measurement_entity import MeasurementEntity
         return MeasurementEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "WaterQualityArchiveSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -258,3 +248,9 @@ class WaterQualityArchiveSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.measurement_entity import MeasurementEntity

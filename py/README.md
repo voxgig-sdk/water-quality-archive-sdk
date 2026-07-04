@@ -31,14 +31,16 @@ from waterqualityarchive_sdk import WaterQualityArchiveSDK
 client = WaterQualityArchiveSDK()
 ```
 
-### 2. List measurements
+### 2. List measurement records
+
+`list()` returns a `list` of records (each a `dict`) and raises on
+error — iterate it directly.
 
 ```python
 try:
-    result = client.measurement.list()
-    for item in result:
-        d = item.data_get()
-        print(d["id"], d["name"])
+    measurements = client.Measurement().list({})
+    for measurement in measurements:
+        print(measurement)
 except Exception as err:
     print(f"list failed: {err}")
 ```
@@ -86,8 +88,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = WaterQualityArchiveSDK.test()
 
-result = client.measurement.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+measurement = client.Measurement().load({"id": "test01"})
+# measurement contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -226,7 +229,7 @@ API path: `/data/measurement`
 
 ### Measurement
 
-Create an instance: `const measurement = client.measurement`
+Create an instance: `measurement = client.Measurement()`
 
 #### Operations
 
@@ -248,8 +251,8 @@ Create an instance: `const measurement = client.measurement`
 
 #### Example: List
 
-```ts
-const measurements = await client.measurement.list()
+```python
+measurements = client.Measurement().list({})
 ```
 
 
@@ -323,7 +326,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-measurement = client.measurement
+measurement = client.Measurement()
 measurement.load({"id": "example_id"})
 
 # measurement.data_get() now returns the loaded measurement data

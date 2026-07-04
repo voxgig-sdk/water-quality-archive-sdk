@@ -26,9 +26,11 @@ import { WaterQualityArchiveSDK } from '@voxgig-sdk/water-quality-archive'
 
 const client = new WaterQualityArchiveSDK()
 
-// List all measurements
-const measurements = await client.measurement.list()
-console.log(measurements.data)
+// List all measurements (returns Measurement[])
+const measurements = await client.Measurement().list()
+for (const measurement of measurements) {
+  console.log(measurement)
+}
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -83,9 +85,10 @@ from waterqualityarchive_sdk import WaterQualityArchiveSDK
 
 client = WaterQualityArchiveSDK()
 
-# List all measurements
-measurements = client.measurement.list()
-print(measurements)
+# List all measurements (returns a list, raises on error)
+measurements = client.Measurement().list({})
+for measurement in measurements:
+    print(measurement)
 ```
 
 ### PHP
@@ -96,8 +99,8 @@ require_once 'waterqualityarchive_sdk.php';
 
 $client = new WaterQualityArchiveSDK();
 
-// List all measurements (throws on error)
-$measurements = $client->measurement()->list();
+// List all measurements (returns an array; throws on error)
+$measurements = $client->Measurement()->list();
 print_r($measurements);
 ```
 
@@ -120,8 +123,8 @@ require_relative "WaterQualityArchive_sdk"
 
 client = WaterQualityArchiveSDK.new
 
-# List all measurements
-measurements = client.measurement.list
+# List all measurements (returns an Array; raises on error)
+measurements = client.Measurement.list
 puts measurements
 ```
 
@@ -133,7 +136,7 @@ local sdk = require("water-quality-archive_sdk")
 local client = sdk.new()
 
 -- List all measurements
-local measurements, err = client:measurement():list()
+local measurements, err = client:Measurement():list()
 print(measurements)
 ```
 
@@ -146,22 +149,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = WaterQualityArchiveSDK.test()
-const result = await client.measurement.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const measurement = await client.Measurement().load({ id: 'test01' })
+// measurement is a bare Measurement populated with mock data
+console.log(measurement)
 ```
 
 ### Python
 
 ```python
 client = WaterQualityArchiveSDK.test()
-result = client.measurement.load({"id": "test01"})
+measurement = client.Measurement().load({"id": "test01"})
+print(measurement)
 ```
 
 ### PHP
 
 ```php
-$client = WaterQualityArchiveSDK::test();
-$result = $client->measurement()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = WaterQualityArchiveSDK::test([
+    "entity" => ["measurement" => ["test01" => ["id" => "test01"]]],
+]);
+$measurement = $client->Measurement()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -176,15 +184,18 @@ result, err := client.Measurement(nil).Load(
 ### Ruby
 
 ```ruby
-client = WaterQualityArchiveSDK.test
-result = client.measurement.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = WaterQualityArchiveSDK.test({
+  "entity" => { "measurement" => { "test01" => { "id" => "test01" } } },
+})
+measurement = client.Measurement.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:measurement():load({ id = "test01" })
+local result, err = client:Measurement():load({ id = "test01" })
 ```
 
 ## How it works
@@ -232,6 +243,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

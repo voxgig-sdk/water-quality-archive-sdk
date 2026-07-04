@@ -208,13 +208,7 @@ class WaterQualityArchiveSDK
   end
 
 
-  # Idiomatic facade: client.measurement.list / client.measurement.load({ "id" => ... })
-  def measurement
-    require_relative 'entity/measurement_entity'
-    @measurement ||= MeasurementEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.measurement instead.
+  # Canonical facade: client.Measurement.list / client.Measurement.load({ "id" => ... })
   def Measurement(data = nil)
     require_relative 'entity/measurement_entity'
     MeasurementEntity.new(self, data)
