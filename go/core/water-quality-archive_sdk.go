@@ -245,6 +245,9 @@ func (sdk *WaterQualityArchiveSDK) Direct(fetchargs map[string]any) (map[string]
 }
 
 
+// Measurement returns a Measurement entity bound to this client.
+// Idiomatic usage: client.Measurement(nil).List(nil, nil) or
+// client.Measurement(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *WaterQualityArchiveSDK) Measurement(data map[string]any) WaterQualityArchiveEntity {
 	return NewMeasurementEntityFunc(sdk, data)
 }

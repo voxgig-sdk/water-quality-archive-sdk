@@ -15,9 +15,6 @@ def make_config():
         },
         "options": {
             "base": "https://environment.data.gov.uk/water-quality",
-            "auth": {
-                "prefix": "Bearer",
-            },
             "headers": {
         "content-type": "application/json",
       },

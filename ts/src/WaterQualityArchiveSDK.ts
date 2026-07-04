@@ -2,6 +2,8 @@
 
 import { MeasurementEntity } from './entity/MeasurementEntity'
 
+export type * from './WaterQualityArchiveTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -202,6 +204,14 @@ class WaterQualityArchiveSDK {
 
 
 
+  _measurement?: MeasurementEntity
+
+  // Idiomatic facade: `client.measurement.list()` / `client.measurement.load({ id })`.
+  get measurement(): MeasurementEntity {
+    return (this._measurement ??= new MeasurementEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.measurement` instead. */
   Measurement(data?: any) {
     const self = this
     return new MeasurementEntity(self,data)

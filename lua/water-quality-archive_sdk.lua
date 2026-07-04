@@ -244,6 +244,19 @@ end
 
 
 
+-- Idiomatic facade: client:measurement():list() / client:measurement():load({ id = ... })
+function WaterQualityArchiveSDK:measurement(data)
+  local EntityMod = require("entity.measurement_entity")
+  if data == nil then
+    if self._measurement == nil then
+      self._measurement = EntityMod.new(self, nil)
+    end
+    return self._measurement
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:measurement() instead.
 function WaterQualityArchiveSDK:Measurement(data)
   local EntityMod = require("entity.measurement_entity")
   return EntityMod.new(self, data)

@@ -79,14 +79,12 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'WATERQUALITYARCHIVE_TEST_MEASUREMENT_ENTID': {},
     'WATERQUALITYARCHIVE_TEST_LIVE': 'FALSE',
-    'WATERQUALITYARCHIVE_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.WATERQUALITYARCHIVE_TEST_LIVE
 
   if (live) {
     const client = new WaterQualityArchiveSDK({
-      apikey: env.WATERQUALITYARCHIVE_APIKEY,
     })
 
     let idmap: any = env['WATERQUALITYARCHIVE_TEST_MEASUREMENT_ENTID']

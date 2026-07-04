@@ -4,6 +4,7 @@
 main: {
   kit: {
     info: {
+      auth: false
       contact: {
         name: "Environment Agency"
         url: "https://environment.data.gov.uk/water-quality/view/landing"
