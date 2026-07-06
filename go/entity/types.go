@@ -19,8 +19,7 @@ type Measurement struct {
 	SamplingPoint *map[string]any `json:"sampling_point,omitempty"`
 }
 
-// MeasurementListMatch mirrors the measurement fields as an all-optional match
-// filter (Go analog of Partial<Measurement>).
+// MeasurementListMatch is the typed request payload for Measurement.ListTyped.
 type MeasurementListMatch struct {
 	Determinand *map[string]any `json:"determinand,omitempty"`
 	Id *string `json:"id,omitempty"`

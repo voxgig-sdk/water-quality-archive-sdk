@@ -8,7 +8,7 @@ Complete API reference for the WaterQualityArchive PHP SDK.
 ### Constructor
 
 ```php
-require_once __DIR__ . '/water-quality-archive_sdk.php';
+require_once __DIR__ . '/waterqualityarchive_sdk.php';
 
 $client = new WaterQualityArchiveSDK($options);
 ```
@@ -45,11 +45,11 @@ $client = WaterQualityArchiveSDK::test();
 
 Create a new `MeasurementEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): WaterQualityArchiveUtility`
 
 Return a copy of the SDK utility object.
 
@@ -92,39 +92,39 @@ $measurement = $client->Measurement();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `determinand` | ``$OBJECT`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `purpose` | ``$OBJECT`` | No |  |
-| `result` | ``$NUMBER`` | No |  |
-| `result_qualifier` | ``$OBJECT`` | No |  |
-| `sample` | ``$OBJECT`` | No |  |
-| `sampling_point` | ``$OBJECT`` | No |  |
+| `determinand` | `array` | No |  |
+| `id` | `string` | No |  |
+| `purpose` | `array` | No |  |
+| `result` | `float` | No |  |
+| `result_qualifier` | `array` | No |  |
+| `sample` | `array` | No |  |
+| `sampling_point` | `array` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->Measurement()->list([]);
+$results = $client->Measurement()->list();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -133,7 +133,7 @@ Set the entity match criteria.
 Create a new `MeasurementEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

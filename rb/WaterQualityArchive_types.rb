@@ -41,7 +41,7 @@ Measurement = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Measurement#list (any subset of Measurement fields).
+# Request payload for Measurement#list.
 #
 # @!attribute [rw] determinand
 #   @return [Hash, nil]

@@ -8,7 +8,7 @@ Complete API reference for the WaterQualityArchive Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'water-quality-archive_sdk'
+require_relative 'WaterQualityArchive_sdk'
 
 client = WaterQualityArchiveSDK.new(options)
 ```
@@ -93,22 +93,22 @@ measurement = client.Measurement
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `determinand` | ``$OBJECT`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `purpose` | ``$OBJECT`` | No |  |
-| `result` | ``$NUMBER`` | No |  |
-| `result_qualifier` | ``$OBJECT`` | No |  |
-| `sample` | ``$OBJECT`` | No |  |
-| `sampling_point` | ``$OBJECT`` | No |  |
+| `determinand` | `Hash` | No |  |
+| `id` | `String` | No |  |
+| `purpose` | `Hash` | No |  |
+| `result` | `Float` | No |  |
+| `result_qualifier` | `Hash` | No |  |
+| `sample` | `Hash` | No |  |
+| `sampling_point` | `Hash` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Measurement.list(nil)
+results = client.Measurement.list
 ```
 
 ### Common Methods

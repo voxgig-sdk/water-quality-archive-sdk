@@ -15,5 +15,13 @@ export interface Measurement {
   sampling_point?: Record<string, any>
 }
 
-export type MeasurementListMatch = Partial<Measurement>
+export interface MeasurementListMatch {
+  determinand?: Record<string, any>
+  id?: string
+  purpose?: Record<string, any>
+  result?: number
+  result_qualifier?: Record<string, any>
+  sample?: Record<string, any>
+  sampling_point?: Record<string, any>
+}
 

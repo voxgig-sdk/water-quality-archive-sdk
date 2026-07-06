@@ -116,13 +116,13 @@ const measurement = client.Measurement()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `determinand` | ``$OBJECT`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `purpose` | ``$OBJECT`` | No |  |
-| `result` | ``$NUMBER`` | No |  |
-| `result_qualifier` | ``$OBJECT`` | No |  |
-| `sample` | ``$OBJECT`` | No |  |
-| `sampling_point` | ``$OBJECT`` | No |  |
+| `determinand` | `Record<string, any>` | No |  |
+| `id` | `string` | No |  |
+| `purpose` | `Record<string, any>` | No |  |
+| `result` | `number` | No |  |
+| `result_qualifier` | `Record<string, any>` | No |  |
+| `sample` | `Record<string, any>` | No |  |
+| `sampling_point` | `Record<string, any>` | No |  |
 
 ### Operations
 

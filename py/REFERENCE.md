@@ -8,7 +8,7 @@ Complete API reference for the WaterQualityArchive Python SDK.
 ### Constructor
 
 ```python
-from water-quality-archive_sdk import WaterQualityArchiveSDK
+from waterqualityarchive_sdk import WaterQualityArchiveSDK
 
 client = WaterQualityArchiveSDK(options)
 ```
@@ -87,22 +87,22 @@ measurement = client.Measurement()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `determinand` | ``$OBJECT`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `purpose` | ``$OBJECT`` | No |  |
-| `result` | ``$NUMBER`` | No |  |
-| `result_qualifier` | ``$OBJECT`` | No |  |
-| `sample` | ``$OBJECT`` | No |  |
-| `sampling_point` | ``$OBJECT`` | No |  |
+| `determinand` | `dict` | No |  |
+| `id` | `str` | No |  |
+| `purpose` | `dict` | No |  |
+| `result` | `float` | No |  |
+| `result_qualifier` | `dict` | No |  |
+| `sample` | `dict` | No |  |
+| `sampling_point` | `dict` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Measurement().list({})
+results = client.Measurement().list()
 for measurement in results:
     print(measurement)
 ```

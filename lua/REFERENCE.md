@@ -90,13 +90,13 @@ local measurement = client:Measurement(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `determinand` | ``$OBJECT`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `purpose` | ``$OBJECT`` | No |  |
-| `result` | ``$NUMBER`` | No |  |
-| `result_qualifier` | ``$OBJECT`` | No |  |
-| `sample` | ``$OBJECT`` | No |  |
-| `sampling_point` | ``$OBJECT`` | No |  |
+| `determinand` | `table` | No |  |
+| `id` | `string` | No |  |
+| `purpose` | `table` | No |  |
+| `result` | `number` | No |  |
+| `result_qualifier` | `table` | No |  |
+| `sample` | `table` | No |  |
+| `sampling_point` | `table` | No |  |
 
 ### Operations
 

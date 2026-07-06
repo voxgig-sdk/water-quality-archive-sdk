@@ -24,7 +24,7 @@ class Measurement
     public ?array $sampling_point = null;
 }
 
-/** Match filter for Measurement#list (any subset of Measurement fields). */
+/** Request payload for Measurement#list. */
 class MeasurementListMatch
 {
     public ?array $determinand = null;

@@ -97,13 +97,13 @@ measurement := client.Measurement(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `determinand` | ``$OBJECT`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `purpose` | ``$OBJECT`` | No |  |
-| `result` | ``$NUMBER`` | No |  |
-| `result_qualifier` | ``$OBJECT`` | No |  |
-| `sample` | ``$OBJECT`` | No |  |
-| `sampling_point` | ``$OBJECT`` | No |  |
+| `determinand` | `map[string]any` | No |  |
+| `id` | `string` | No |  |
+| `purpose` | `map[string]any` | No |  |
+| `result` | `float64` | No |  |
+| `result_qualifier` | `map[string]any` | No |  |
+| `sample` | `map[string]any` | No |  |
+| `sampling_point` | `map[string]any` | No |  |
 
 ### Operations
 
