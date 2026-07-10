@@ -20,9 +20,9 @@ main: {
           url: "https://environment.data.gov.uk/water-quality"
         }
       ]
+      summary: "The Water Quality Archive provides comprehensive data on water quality measurements from various sampling points across England including coastal, river, lake, and groundwater sources."
       title: "Water Quality Archive"
       version: "1.0.0"
+      website: "https://environment.data.gov.uk/water-quality/view/landing"
     }
   }
-}
-

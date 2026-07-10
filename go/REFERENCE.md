@@ -91,6 +91,7 @@ same parameters as `Direct()`.
 
 ```go
 measurement := client.Measurement(nil)
+fmt.Println(measurement.GetName()) // "measurement"
 ```
 
 ### Fields
@@ -113,6 +114,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.Measurement(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 ### Common Methods

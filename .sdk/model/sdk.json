@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -335,14 +332,17 @@
           "name": "Open Government Licence v3.0",
           "url": "http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
         },
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Production server",
             "url": "https://environment.data.gov.uk/water-quality"
           }
         ],
+        "summary": "The Water Quality Archive provides comprehensive data on water quality measurements from various sampling points across England including coastal, river, lake, and groundwater sources.",
         "title": "Water Quality Archive",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://environment.data.gov.uk/water-quality/view/landing"
       },
       "option": {},
       "target": {
@@ -395,6 +395,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -445,6 +448,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
