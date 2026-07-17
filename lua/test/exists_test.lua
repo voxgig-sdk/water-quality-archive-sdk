@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- WaterQualityArchive SDK exists test
 
 local sdk = require("water-quality-archive_sdk")
 
