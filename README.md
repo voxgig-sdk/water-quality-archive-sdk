@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = WaterQualityArchiveSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = WaterQualityArchiveSDK.test({
+  entity: {
+    measurement: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const measurements = await client.Measurement().list()
-// measurements is an array of bare Measurement records populated with mock data
+// measurements is an array of Measurement entities, populated with mock data
+// — call measurements[0].data() for the record itself
 console.log(measurements)
 ```
 
@@ -110,7 +119,7 @@ import { WaterQualityArchiveSDK } from '@voxgig-sdk/water-quality-archive'
 
 const client = new WaterQualityArchiveSDK()
 
-// List all measurements (returns Measurement[])
+// List all measurements (returns MeasurementEntity[] — .data() for the record)
 const measurements = await client.Measurement().list()
 for (const measurement of measurements) {
   console.log(measurement)
@@ -343,6 +352,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://environment.data.gov.uk/water-quality/view/landing](https://environment.data.gov.uk/water-quality/view/landing)
 

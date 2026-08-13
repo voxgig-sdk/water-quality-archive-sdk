@@ -19,11 +19,15 @@ import {
 describe('MeasurementDirect', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when WATERQUALITYARCHIVE_TEST_LIVE=TRUE.
-  afterEach(liveDelay('WATERQUALITYARCHIVE_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when WATER_QUALITY_ARCHIVE_TEST_LIVE=TRUE.
+  afterEach(liveDelay('WATER_QUALITY_ARCHIVE_TEST_LIVE'))
 
   test('direct-exists', async () => {
     const sdk = new WaterQualityArchiveSDK({
+      // Concrete base: a live construction must satisfy any server
+      // variables a templated base URL declares; overriding base with a
+      // literal (as the direct flow tests do) sidesteps the requirement.
+      base: 'http://localhost:8080',
       system: { fetch: async () => ({}) }
     })
     assert('function' === typeof sdk.direct)
@@ -77,17 +81,17 @@ function directSetup(mockres?: any) {
   const calls: any[] = []
 
   const env = envOverride({
-    'WATERQUALITYARCHIVE_TEST_MEASUREMENT_ENTID': {},
-    'WATERQUALITYARCHIVE_TEST_LIVE': 'FALSE',
+    'WATER_QUALITY_ARCHIVE_TEST_MEASUREMENT_ENTID': {},
+    'WATER_QUALITY_ARCHIVE_TEST_LIVE': 'FALSE',
   })
 
-  const live = 'TRUE' === env.WATERQUALITYARCHIVE_TEST_LIVE
+  const live = 'TRUE' === env.WATER_QUALITY_ARCHIVE_TEST_LIVE
 
   if (live) {
     const client = new WaterQualityArchiveSDK({
     })
 
-    let idmap: any = env['WATERQUALITYARCHIVE_TEST_MEASUREMENT_ENTID']
+    let idmap: any = env['WATER_QUALITY_ARCHIVE_TEST_MEASUREMENT_ENTID']
     if ('string' === typeof idmap && idmap.startsWith('{')) {
       idmap = JSON.parse(idmap)
     }

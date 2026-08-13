@@ -43,8 +43,8 @@ class WaterQualityArchiveTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('WATERQUALITYARCHIVE_TEST_LIVE');
-        $override = self::getenv('WATERQUALITYARCHIVE_TEST_OVERRIDE');
+        $live = self::getenv('WATER_QUALITY_ARCHIVE_TEST_LIVE');
+        $override = self::getenv('WATER_QUALITY_ARCHIVE_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class WaterQualityArchiveTestRunner
             }
         }
 
-        $explain = self::getenv('WATERQUALITYARCHIVE_TEST_EXPLAIN');
+        $explain = self::getenv('WATER_QUALITY_ARCHIVE_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['WATERQUALITYARCHIVE_TEST_EXPLAIN'] = $explain;
+            $m['WATER_QUALITY_ARCHIVE_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

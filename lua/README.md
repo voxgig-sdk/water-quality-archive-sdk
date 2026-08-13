@@ -218,9 +218,9 @@ data **directly** — there is no wrapper:
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
 
-    local measurement, err = client:Measurement():load()
+    local measurement, err = client:Measurement():list()
     if err then error(err) end
-    -- measurement is the loaded record
+    -- measurement is the record list
 
 Only `direct()` returns a response envelope — a `table` with `ok`,
 `status`, `headers`, and `data` keys.
@@ -235,9 +235,9 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | `id` |  |
 | `purpose` |  |
 | `result` |  |
-| `result_qualifier` |  |
+| `resultQualifier` |  |
 | `sample` |  |
-| `sampling_point` |  |
+| `samplingPoint` |  |
 
 Operations: List.
 
@@ -266,9 +266,9 @@ Create an instance: `local measurement = client:Measurement(nil)`
 | `id` | `string` |  |
 | `purpose` | `table` |  |
 | `result` | `number` |  |
-| `result_qualifier` | `table` |  |
+| `resultQualifier` | `table` |  |
 | `sample` | `table` |  |
-| `sampling_point` | `table` |  |
+| `samplingPoint` | `table` |  |
 
 #### Example: List
 

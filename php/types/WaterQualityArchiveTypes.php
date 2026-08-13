@@ -19,9 +19,9 @@ class Measurement
     public ?string $id = null;
     public ?array $purpose = null;
     public ?float $result = null;
-    public ?array $result_qualifier = null;
+    public ?array $resultQualifier = null;
     public ?array $sample = null;
-    public ?array $sampling_point = null;
+    public ?array $samplingPoint = null;
 }
 
 /** Request payload for Measurement#list. */
@@ -31,8 +31,8 @@ class MeasurementListMatch
     public ?string $id = null;
     public ?array $purpose = null;
     public ?float $result = null;
-    public ?array $result_qualifier = null;
+    public ?array $resultQualifier = null;
     public ?array $sample = null;
-    public ?array $sampling_point = null;
+    public ?array $samplingPoint = null;
 }
 

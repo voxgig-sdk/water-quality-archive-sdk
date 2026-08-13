@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import WaterQualityArchiveControl
-from core.error import WaterQualityArchiveError
-from core.result import WaterQualityArchiveResult
-from core.spec import WaterQualityArchiveSpec
+from projectname_sdk.config import make_config
+from projectname_sdk.features import _make_feature
+from projectname_sdk.core.control import WaterQualityArchiveControl
+from projectname_sdk.core.error import WaterQualityArchiveError
+from projectname_sdk.core.result import WaterQualityArchiveResult
+from projectname_sdk.core.spec import WaterQualityArchiveSpec
 
 
 # True when this SDK was generated with the named feature.

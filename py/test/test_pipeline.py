@@ -16,11 +16,11 @@
 import pytest
 
 from waterqualityarchive_sdk import WaterQualityArchiveSDK
-from core.error import WaterQualityArchiveError
-from core.result import WaterQualityArchiveResult
-from core.response import WaterQualityArchiveResponse
-from core.spec import WaterQualityArchiveSpec
-from feature.base_feature import WaterQualityArchiveBaseFeature
+from waterqualityarchive_sdk.core.error import WaterQualityArchiveError
+from waterqualityarchive_sdk.core.result import WaterQualityArchiveResult
+from waterqualityarchive_sdk.core.response import WaterQualityArchiveResponse
+from waterqualityarchive_sdk.core.spec import WaterQualityArchiveSpec
+from waterqualityarchive_sdk.feature.base_feature import WaterQualityArchiveBaseFeature
 
 
 def _client():

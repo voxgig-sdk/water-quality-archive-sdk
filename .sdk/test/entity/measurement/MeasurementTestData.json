@@ -6,27 +6,27 @@
         "id": "MEASUREMENT00",
         "purpose": {},
         "result": 73,
-        "result_qualifier": {},
+        "resultQualifier": {},
         "sample": {},
-        "sampling_point": {}
+        "samplingPoint": {}
       },
       "MEASUREMENT01": {
         "determinand": {},
         "id": "MEASUREMENT01",
         "purpose": {},
         "result": 143,
-        "result_qualifier": {},
+        "resultQualifier": {},
         "sample": {},
-        "sampling_point": {}
+        "samplingPoint": {}
       },
       "MEASUREMENT02": {
         "determinand": {},
         "id": "MEASUREMENT02",
         "purpose": {},
         "result": 213,
-        "result_qualifier": {},
+        "resultQualifier": {},
         "sample": {},
-        "sampling_point": {}
+        "samplingPoint": {}
       }
     }
   },
@@ -36,9 +36,9 @@
         "determinand": {},
         "purpose": {},
         "result": 283,
-        "result_qualifier": {},
+        "resultQualifier": {},
         "sample": {},
-        "sampling_point": {}
+        "samplingPoint": {}
       }
     }
   }

@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from waterqualityarchive_sdk.utility.voxgig_struct import voxgig_struct as vs
 from waterqualityarchive_sdk import WaterQualityArchiveSDK
-from core import helpers
+from waterqualityarchive_sdk.core import helpers
 from test import runner
 
 
@@ -58,11 +58,11 @@ def _measurement_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "WATERQUALITYARCHIVE_TEST_MEASUREMENT_ENTID": {},
-        "WATERQUALITYARCHIVE_TEST_LIVE": "FALSE",
+        "WATER_QUALITY_ARCHIVE_TEST_MEASUREMENT_ENTID": {},
+        "WATER_QUALITY_ARCHIVE_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("WATERQUALITYARCHIVE_TEST_LIVE") == "TRUE"
+    live = env.get("WATER_QUALITY_ARCHIVE_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

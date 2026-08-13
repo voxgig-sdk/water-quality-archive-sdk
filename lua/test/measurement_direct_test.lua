@@ -61,11 +61,11 @@ function measurement_direct_setup(mockres)
   local calls = {}
 
   local env = runner.env_override({
-    ["WATERQUALITYARCHIVE_TEST_MEASUREMENT_ENTID"] = {},
-    ["WATERQUALITYARCHIVE_TEST_LIVE"] = "FALSE",
+    ["WATER_QUALITY_ARCHIVE_TEST_MEASUREMENT_ENTID"] = {},
+    ["WATER_QUALITY_ARCHIVE_TEST_LIVE"] = "FALSE",
   })
 
-  local live = env["WATERQUALITYARCHIVE_TEST_LIVE"] == "TRUE"
+  local live = env["WATER_QUALITY_ARCHIVE_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {

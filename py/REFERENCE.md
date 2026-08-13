@@ -91,9 +91,9 @@ measurement = client.Measurement()
 | `id` | `str` | No |  |
 | `purpose` | `dict` | No |  |
 | `result` | `float` | No |  |
-| `result_qualifier` | `dict` | No |  |
+| `resultQualifier` | `dict` | No |  |
 | `sample` | `dict` | No |  |
-| `sampling_point` | `dict` | No |  |
+| `samplingPoint` | `dict` | No |  |
 
 ### Operations
 

@@ -35,8 +35,8 @@ end
 
 
 function runner.env_override(m)
-  local live = runner.getenv("WATERQUALITYARCHIVE_TEST_LIVE")
-  local override = runner.getenv("WATERQUALITYARCHIVE_TEST_OVERRIDE")
+  local live = runner.getenv("WATER_QUALITY_ARCHIVE_TEST_LIVE")
+  local override = runner.getenv("WATER_QUALITY_ARCHIVE_TEST_OVERRIDE")
 
   if live == "TRUE" or override == "TRUE" then
     for key, _ in pairs(m) do
@@ -56,9 +56,9 @@ function runner.env_override(m)
     end
   end
 
-  local explain = runner.getenv("WATERQUALITYARCHIVE_TEST_EXPLAIN")
+  local explain = runner.getenv("WATER_QUALITY_ARCHIVE_TEST_EXPLAIN")
   if explain ~= nil and explain ~= "" then
-    m["WATERQUALITYARCHIVE_TEST_EXPLAIN"] = explain
+    m["WATER_QUALITY_ARCHIVE_TEST_EXPLAIN"] = explain
   end
 
   return m

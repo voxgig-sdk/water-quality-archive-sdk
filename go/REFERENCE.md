@@ -102,9 +102,9 @@ fmt.Println(measurement.GetName()) // "measurement"
 | `id` | `string` | No |  |
 | `purpose` | `map[string]any` | No |  |
 | `result` | `float64` | No |  |
-| `result_qualifier` | `map[string]any` | No |  |
+| `resultQualifier` | `map[string]any` | No |  |
 | `sample` | `map[string]any` | No |  |
-| `sampling_point` | `map[string]any` | No |  |
+| `samplingPoint` | `map[string]any` | No |  |
 
 ### Operations
 

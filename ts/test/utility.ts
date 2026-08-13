@@ -62,8 +62,8 @@ function makeCtrl(explain: boolean) {
 // Overrides configuration values with environment variables if available
 function envOverride(m: Record<string, any>) {
   if (
-    'TRUE' === process.env.WATERQUALITYARCHIVE_TEST_LIVE ||
-    'TRUE' === process.env.WATERQUALITYARCHIVE_TEST_OVERRIDE
+    'TRUE' === process.env.WATER_QUALITY_ARCHIVE_TEST_LIVE ||
+    'TRUE' === process.env.WATER_QUALITY_ARCHIVE_TEST_OVERRIDE
   ) {
     Object.entries(m).map(n => {
       let envval = process.env[n[0]]
@@ -74,7 +74,7 @@ function envOverride(m: Record<string, any>) {
     })
   }
 
-  m.WATERQUALITYARCHIVE_TEST_EXPLAIN = process.env.WATERQUALITYARCHIVE_TEST_EXPLAIN || m.WATERQUALITYARCHIVE_TEST_EXPLAIN
+  m.WATER_QUALITY_ARCHIVE_TEST_EXPLAIN = process.env.WATER_QUALITY_ARCHIVE_TEST_EXPLAIN || m.WATER_QUALITY_ARCHIVE_TEST_EXPLAIN
 
   return m
 }

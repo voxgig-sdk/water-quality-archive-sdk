@@ -10,9 +10,9 @@ export interface Measurement {
   id?: string
   purpose?: Record<string, any>
   result?: number
-  result_qualifier?: Record<string, any>
+  resultQualifier?: Record<string, any>
   sample?: Record<string, any>
-  sampling_point?: Record<string, any>
+  samplingPoint?: Record<string, any>
 }
 
 export interface MeasurementListMatch {
@@ -20,8 +20,8 @@ export interface MeasurementListMatch {
   id?: string
   purpose?: Record<string, any>
   result?: number
-  result_qualifier?: Record<string, any>
+  resultQualifier?: Record<string, any>
   sample?: Record<string, any>
-  sampling_point?: Record<string, any>
+  samplingPoint?: Record<string, any>
 }
 

@@ -26,7 +26,7 @@ main: kit: entity: measurement: {
       type: "`$NUMBER`"
     }
     {
-      name: "result_qualifier"
+      name: "resultQualifier"
       req: false
       type: "`$OBJECT`"
     }
@@ -36,7 +36,7 @@ main: kit: entity: measurement: {
       type: "`$OBJECT`"
     }
     {
-      name: "sampling_point"
+      name: "samplingPoint"
       req: false
       type: "`$OBJECT`"
     }

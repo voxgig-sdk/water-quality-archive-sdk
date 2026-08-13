@@ -22,22 +22,22 @@
 # @!attribute [rw] result
 #   @return [Float, nil]
 #
-# @!attribute [rw] result_qualifier
+# @!attribute [rw] resultQualifier
 #   @return [Hash, nil]
 #
 # @!attribute [rw] sample
 #   @return [Hash, nil]
 #
-# @!attribute [rw] sampling_point
+# @!attribute [rw] samplingPoint
 #   @return [Hash, nil]
 Measurement = Struct.new(
   :determinand,
   :id,
   :purpose,
   :result,
-  :result_qualifier,
+  :resultQualifier,
   :sample,
-  :sampling_point,
+  :samplingPoint,
   keyword_init: true
 )
 
@@ -55,22 +55,22 @@ Measurement = Struct.new(
 # @!attribute [rw] result
 #   @return [Float, nil]
 #
-# @!attribute [rw] result_qualifier
+# @!attribute [rw] resultQualifier
 #   @return [Hash, nil]
 #
 # @!attribute [rw] sample
 #   @return [Hash, nil]
 #
-# @!attribute [rw] sampling_point
+# @!attribute [rw] samplingPoint
 #   @return [Hash, nil]
 MeasurementListMatch = Struct.new(
   :determinand,
   :id,
   :purpose,
   :result,
-  :result_qualifier,
+  :resultQualifier,
   :sample,
-  :sampling_point,
+  :samplingPoint,
   keyword_init: true
 )
 

@@ -66,11 +66,11 @@ function measurement_direct_setup($mockres)
     $calls = new \ArrayObject();
 
     $env = Runner::env_override([
-        "WATERQUALITYARCHIVE_TEST_MEASUREMENT_ENTID" => [],
-        "WATERQUALITYARCHIVE_TEST_LIVE" => "FALSE",
+        "WATER_QUALITY_ARCHIVE_TEST_MEASUREMENT_ENTID" => [],
+        "WATER_QUALITY_ARCHIVE_TEST_LIVE" => "FALSE",
     ]);
 
-    $live = $env["WATERQUALITYARCHIVE_TEST_LIVE"] === "TRUE";
+    $live = $env["WATER_QUALITY_ARCHIVE_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [

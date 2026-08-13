@@ -120,9 +120,9 @@ const measurement = client.Measurement()
 | `id` | `string` | No |  |
 | `purpose` | `Record<string, any>` | No |  |
 | `result` | `number` | No |  |
-| `result_qualifier` | `Record<string, any>` | No |  |
+| `resultQualifier` | `Record<string, any>` | No |  |
 | `sample` | `Record<string, any>` | No |  |
-| `sampling_point` | `Record<string, any>` | No |  |
+| `samplingPoint` | `Record<string, any>` | No |  |
 
 ### Operations
 

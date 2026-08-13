@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ WaterQualityArchiveUtility.registrar = ->(u) {
   u.prepare_params = WaterQualityArchiveUtilities::PrepareParams
   u.prepare_path = WaterQualityArchiveUtilities::PreparePath
   u.prepare_query = WaterQualityArchiveUtilities::PrepareQuery
+  u.graphql_body = WaterQualityArchiveUtilities::GraphqlBody
+  u.graphql_errors = WaterQualityArchiveUtilities::GraphqlErrors
   u.result_basic = WaterQualityArchiveUtilities::ResultBasic
   u.result_body = WaterQualityArchiveUtilities::ResultBody
   u.result_headers = WaterQualityArchiveUtilities::ResultHeaders

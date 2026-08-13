@@ -94,9 +94,9 @@ local measurement = client:Measurement(nil)
 | `id` | `string` | No |  |
 | `purpose` | `table` | No |  |
 | `result` | `number` | No |  |
-| `result_qualifier` | `table` | No |  |
+| `resultQualifier` | `table` | No |  |
 | `sample` | `table` | No |  |
-| `sampling_point` | `table` | No |  |
+| `samplingPoint` | `table` | No |  |
 
 ### Operations
 

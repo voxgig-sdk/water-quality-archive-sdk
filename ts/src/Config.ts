@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'WaterQualityArchive',
   }
 
 
@@ -84,7 +84,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "result_qualifier",
+          "name": "resultQualifier",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 4
@@ -98,7 +98,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "sampling_point",
+          "name": "samplingPoint",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 6
@@ -199,6 +199,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/data/measurement",
               "parts": [

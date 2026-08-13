@@ -23,8 +23,8 @@ module WaterQualityArchiveTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("WATERQUALITYARCHIVE_TEST_LIVE")
-    override = getenv("WATERQUALITYARCHIVE_TEST_OVERRIDE")
+    live = getenv("WATER_QUALITY_ARCHIVE_TEST_LIVE")
+    override = getenv("WATER_QUALITY_ARCHIVE_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module WaterQualityArchiveTestRunner
       end
     end
 
-    explain = getenv("WATERQUALITYARCHIVE_TEST_EXPLAIN")
-    m["WATERQUALITYARCHIVE_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("WATER_QUALITY_ARCHIVE_TEST_EXPLAIN")
+    m["WATER_QUALITY_ARCHIVE_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

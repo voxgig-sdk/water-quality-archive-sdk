@@ -11,18 +11,18 @@
 ---@field id? string
 ---@field purpose? table
 ---@field result? number
----@field result_qualifier? table
+---@field resultQualifier? table
 ---@field sample? table
----@field sampling_point? table
+---@field samplingPoint? table
 
 ---@class MeasurementListMatch
 ---@field determinand? table
 ---@field id? string
 ---@field purpose? table
 ---@field result? number
----@field result_qualifier? table
+---@field resultQualifier? table
 ---@field sample? table
----@field sampling_point? table
+---@field samplingPoint? table
 
 local M = {}
 

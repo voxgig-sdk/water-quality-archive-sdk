@@ -119,7 +119,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = WaterQualityArchiveSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 measurement = client.Measurement.list()
 puts measurement
 ```
@@ -240,9 +241,9 @@ returns a result `Hash` with these keys:
 | `id` |  |
 | `purpose` |  |
 | `result` |  |
-| `result_qualifier` |  |
+| `resultQualifier` |  |
 | `sample` |  |
-| `sampling_point` |  |
+| `samplingPoint` |  |
 
 Operations: List.
 
@@ -271,9 +272,9 @@ Create an instance: `measurement = client.Measurement`
 | `id` | `String` |  |
 | `purpose` | `Hash` |  |
 | `result` | `Float` |  |
-| `result_qualifier` | `Hash` |  |
+| `resultQualifier` | `Hash` |  |
 | `sample` | `Hash` |  |
-| `sampling_point` | `Hash` |  |
+| `samplingPoint` | `Hash` |  |
 
 #### Example: List
 

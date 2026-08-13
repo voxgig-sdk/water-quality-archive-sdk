@@ -35,7 +35,9 @@ const client = new WaterQualityArchiveSDK()
 
 ### 2. List measurement records
 
-`list()` resolves to an array of Measurement objects — iterate it directly:
+`list()` resolves to an array of Measurement ENTITIES — every operation
+resolves to entities, not raw records. Iterate them directly, and call
+`.data()` on one for the record it holds:
 
 ```ts
 const measurements = await client.Measurement().list()
@@ -120,7 +122,8 @@ Create a mock client for unit testing — no server required:
 const client = WaterQualityArchiveSDK.test()
 
 const measurement = await client.Measurement().list()
-// measurement is a bare entity populated with mock response data
+// measurement is the entity, populated with mock response data
+// — call measurement.data() for the record itself
 console.log(measurement)
 ```
 
@@ -288,9 +291,9 @@ The `prepare()` method returns:
 | `id` |  |
 | `purpose` |  |
 | `result` |  |
-| `result_qualifier` |  |
+| `resultQualifier` |  |
 | `sample` |  |
-| `sampling_point` |  |
+| `samplingPoint` |  |
 
 Operations: list.
 
@@ -319,9 +322,9 @@ Create an instance: `const measurement = client.Measurement()`
 | `id` | `string` |  |
 | `purpose` | `Record<string, any>` |  |
 | `result` | `number` |  |
-| `result_qualifier` | `Record<string, any>` |  |
+| `resultQualifier` | `Record<string, any>` |  |
 | `sample` | `Record<string, any>` |  |
-| `sampling_point` | `Record<string, any>` |  |
+| `samplingPoint` | `Record<string, any>` |  |
 
 #### Example: List
 

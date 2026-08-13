@@ -97,9 +97,9 @@ measurement = client.Measurement
 | `id` | `String` | No |  |
 | `purpose` | `Hash` | No |  |
 | `result` | `Float` | No |  |
-| `result_qualifier` | `Hash` | No |  |
+| `resultQualifier` | `Hash` | No |  |
 | `sample` | `Hash` | No |  |
-| `sampling_point` | `Hash` | No |  |
+| `samplingPoint` | `Hash` | No |  |
 
 ### Operations
 

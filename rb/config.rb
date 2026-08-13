@@ -55,7 +55,7 @@ module WaterQualityArchiveConfig
             },
             {
               "active" => true,
-              "name" => "result_qualifier",
+              "name" => "resultQualifier",
               "req" => false,
               "type" => "`$OBJECT`",
               "index$" => 4,
@@ -69,7 +69,7 @@ module WaterQualityArchiveConfig
             },
             {
               "active" => true,
-              "name" => "sampling_point",
+              "name" => "samplingPoint",
               "req" => false,
               "type" => "`$OBJECT`",
               "index$" => 6,
@@ -170,6 +170,7 @@ module WaterQualityArchiveConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/data/measurement",
                   "parts" => [

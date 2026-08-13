@@ -125,7 +125,8 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = WaterQualityArchiveSDK::test();
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $measurement = $client->Measurement()->list();
 print_r($measurement);
 ```
@@ -224,7 +225,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -250,9 +251,9 @@ On error, `ok` is `false` and `$err` contains the error value.
 | `id` |  |
 | `purpose` |  |
 | `result` |  |
-| `result_qualifier` |  |
+| `resultQualifier` |  |
 | `sample` |  |
-| `sampling_point` |  |
+| `samplingPoint` |  |
 
 Operations: List.
 
@@ -281,9 +282,9 @@ Create an instance: `$measurement = $client->Measurement();`
 | `id` | `string` |  |
 | `purpose` | `array` |  |
 | `result` | `float` |  |
-| `result_qualifier` | `array` |  |
+| `resultQualifier` | `array` |  |
 | `sample` | `array` |  |
-| `sampling_point` | `array` |  |
+| `samplingPoint` | `array` |  |
 
 #### Example: List
 

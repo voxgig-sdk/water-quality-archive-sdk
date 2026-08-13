@@ -96,9 +96,9 @@ $measurement = $client->Measurement();
 | `id` | `string` | No |  |
 | `purpose` | `array` | No |  |
 | `result` | `float` | No |  |
-| `result_qualifier` | `array` | No |  |
+| `resultQualifier` | `array` | No |  |
 | `sample` | `array` | No |  |
-| `sampling_point` | `array` | No |  |
+| `samplingPoint` | `array` | No |  |
 
 ### Operations
 

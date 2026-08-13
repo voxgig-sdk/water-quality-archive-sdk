@@ -23,6 +23,7 @@ require_once __DIR__ . '/MakeUrl.php';
 require_once __DIR__ . '/Param.php';
 require_once __DIR__ . '/PrepareAuth.php';
 require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
 require_once __DIR__ . '/PrepareHeaders.php';
 require_once __DIR__ . '/PrepareMethod.php';
 require_once __DIR__ . '/PrepareParams.php';
@@ -59,6 +60,8 @@ WaterQualityArchiveUtility::setRegistrar(function (WaterQualityArchiveUtility $u
     $u->prepare_params = [WaterQualityArchivePrepareParams::class, 'call'];
     $u->prepare_path = [WaterQualityArchivePreparePath::class, 'call'];
     $u->prepare_query = [WaterQualityArchivePrepareQuery::class, 'call'];
+    $u->graphql_body = [WaterQualityArchiveGraphql::class, 'body'];
+    $u->graphql_errors = [WaterQualityArchiveGraphql::class, 'errors'];
     $u->result_basic = [WaterQualityArchiveResultBasic::class, 'call'];
     $u->result_body = [WaterQualityArchiveResultBody::class, 'call'];
     $u->result_headers = [WaterQualityArchiveResultHeaders::class, 'call'];

@@ -26,8 +26,8 @@ import {
 describe('MeasurementEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when WATERQUALITYARCHIVE_TEST_LIVE=TRUE.
-  afterEach(liveDelay('WATERQUALITYARCHIVE_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when WATER_QUALITY_ARCHIVE_TEST_LIVE=TRUE.
+  afterEach(liveDelay('WATER_QUALITY_ARCHIVE_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = WaterQualityArchiveSDK.test()
@@ -63,7 +63,7 @@ describe('MeasurementEntity', async () => {
     const measurement_ref01_ent = client.Measurement()
     const measurement_ref01_match: any = {}
 
-    const measurement_ref01_list = await measurement_ref01_ent.list(measurement_ref01_match)
+    const measurement_ref01_list = (await measurement_ref01_ent.list(measurement_ref01_match)).map((e: any) => e.data())
 
 
   })

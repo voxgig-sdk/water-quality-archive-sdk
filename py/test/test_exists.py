@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# WaterQualityArchive SDK exists test
 
 import pytest
 from waterqualityarchive_sdk import WaterQualityArchiveSDK

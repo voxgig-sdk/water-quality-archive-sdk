@@ -264,9 +264,9 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | `"id"` |  |
 | `"purpose"` |  |
 | `"result"` |  |
-| `"result_qualifier"` |  |
+| `"resultQualifier"` |  |
 | `"sample"` |  |
-| `"sampling_point"` |  |
+| `"samplingPoint"` |  |
 
 Operations: List.
 
@@ -295,9 +295,9 @@ Create an instance: `measurement := client.Measurement(nil)`
 | `id` | `string` |  |
 | `purpose` | `map[string]any` |  |
 | `result` | `float64` |  |
-| `result_qualifier` | `map[string]any` |  |
+| `resultQualifier` | `map[string]any` |  |
 | `sample` | `map[string]any` |  |
-| `sampling_point` | `map[string]any` |  |
+| `samplingPoint` | `map[string]any` |  |
 
 #### Example: List
 
