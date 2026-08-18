@@ -5,6 +5,29 @@ declare(strict_types=1);
 
 class WaterQualityArchiveConfig
 {
+    /** @var array<string,mixed>|null */
+    private static ?array $shared_config = null;
+
+    /**
+     * Return the process-wide config, built once on first use. The SDK reads
+     * the config on every request and never writes to it, so one instance is
+     * shared by every client rather than rebuilt per client.
+     *
+     * PHP arrays are copy-on-write, so callers that do mutate the result get
+     * their own copy and cannot disturb the shared one.
+     */
+    public static function shared_config(): array
+    {
+        if (self::$shared_config === null) {
+            self::$shared_config = self::make_config();
+        }
+        return self::$shared_config;
+    }
+
+    /**
+     * Build a fresh, fully materialised config array. Every call rebuilds the
+     * whole structure, so prefer shared_config unless you need a private copy.
+     */
     public static function make_config(): array
     {
         return [
@@ -31,53 +54,32 @@ class WaterQualityArchiveConfig
         'measurement' => [
           'fields' => [
             [
-              'active' => true,
               'name' => 'determinand',
-              'req' => false,
               'type' => '`$OBJECT`',
-              'index$' => 0,
             ],
             [
-              'active' => true,
               'name' => 'id',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 1,
             ],
             [
-              'active' => true,
               'name' => 'purpose',
-              'req' => false,
               'type' => '`$OBJECT`',
-              'index$' => 2,
             ],
             [
-              'active' => true,
               'name' => 'result',
-              'req' => false,
               'type' => '`$NUMBER`',
-              'index$' => 3,
             ],
             [
-              'active' => true,
               'name' => 'resultQualifier',
-              'req' => false,
               'type' => '`$OBJECT`',
-              'index$' => 4,
             ],
             [
-              'active' => true,
               'name' => 'sample',
-              'req' => false,
               'type' => '`$OBJECT`',
-              'index$' => 5,
             ],
             [
-              'active' => true,
               'name' => 'samplingPoint',
-              'req' => false,
               'type' => '`$OBJECT`',
-              'index$' => 6,
             ],
           ],
           'name' => 'measurement',
@@ -87,90 +89,69 @@ class WaterQualityArchiveConfig
               'name' => 'list',
               'points' => [
                 [
-                  'active' => true,
                   'args' => [
                     'query' => [
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'area',
                         'orig' => 'area',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'determinand',
                         'orig' => 'determinand',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'end_date',
                         'orig' => 'end_date',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'example' => 'json',
                         'kind' => 'query',
                         'name' => 'format',
                         'orig' => 'format',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'example' => 100,
                         'kind' => 'query',
                         'name' => 'limit',
                         'orig' => 'limit',
-                        'reqd' => false,
                         'type' => '`$INTEGER`',
                       ],
                       [
-                        'active' => true,
                         'example' => 0,
                         'kind' => 'query',
                         'name' => 'offset',
                         'orig' => 'offset',
-                        'reqd' => false,
                         'type' => '`$INTEGER`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'purpose',
                         'orig' => 'purpose',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'sampling_point',
                         'orig' => 'sampling_point',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'start_date',
                         'orig' => 'start_date',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'water_body',
                         'orig' => 'water_body',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                     ],
@@ -200,10 +181,8 @@ class WaterQualityArchiveConfig
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'index$' => 0,
                 ],
               ],
-              'key$' => 'list',
             ],
           ],
           'relations' => [

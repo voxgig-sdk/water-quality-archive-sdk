@@ -15,7 +15,7 @@ require_relative "../WaterQualityArchive_sdk"
 module WaterQualityArchiveFeatureHarness
   # True when this SDK was generated with the named feature.
   def self.has_feature?(name)
-    f = WaterQualityArchiveConfig.make_config["feature"]
+    f = WaterQualityArchiveConfig.shared_config["feature"]
     f.is_a?(Hash) && !f[name].nil?
   end
 

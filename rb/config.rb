@@ -1,6 +1,20 @@
 # WaterQualityArchive SDK configuration
 
 module WaterQualityArchiveConfig
+  # Return the process-wide config, built once on first use. The SDK reads
+  # the config on every request and never writes to it, so one instance is
+  # shared by every client rather than rebuilt per client.
+  #
+  # The returned hash is shared: treat it as read-only. Callers that need to
+  # mutate should use make_config, which always returns a fresh copy.
+  def self.shared_config
+    @shared_config ||= make_config
+  end
+
+
+  # Build a fresh, fully materialised config hash. Every call rebuilds the
+  # whole structure, so prefer shared_config unless you need a private copy
+  # you intend to mutate.
   def self.make_config
     {
       "main" => {
@@ -26,53 +40,32 @@ module WaterQualityArchiveConfig
         "measurement" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "determinand",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "id",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "purpose",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "result",
-              "req" => false,
               "type" => "`$NUMBER`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "resultQualifier",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "sample",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "samplingPoint",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 6,
             },
           ],
           "name" => "measurement",
@@ -82,90 +75,69 @@ module WaterQualityArchiveConfig
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "area",
                         "orig" => "area",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "determinand",
                         "orig" => "determinand",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "end_date",
                         "orig" => "end_date",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "example" => "json",
                         "kind" => "query",
                         "name" => "format",
                         "orig" => "format",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "example" => 100,
                         "kind" => "query",
                         "name" => "limit",
                         "orig" => "limit",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "example" => 0,
                         "kind" => "query",
                         "name" => "offset",
                         "orig" => "offset",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "purpose",
                         "orig" => "purpose",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "sampling_point",
                         "orig" => "sampling_point",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "start_date",
                         "orig" => "start_date",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "water_body",
                         "orig" => "water_body",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                     ],
@@ -195,10 +167,8 @@ module WaterQualityArchiveConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
           },
           "relations" => {

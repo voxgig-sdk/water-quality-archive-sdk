@@ -40,7 +40,7 @@ class WaterQualityArchiveSDK
         $utility = new WaterQualityArchiveUtility();
         $this->_utility = $utility;
 
-        $config = WaterQualityArchiveConfig::make_config();
+        $config = WaterQualityArchiveConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

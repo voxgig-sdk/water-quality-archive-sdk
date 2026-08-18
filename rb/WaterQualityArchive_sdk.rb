@@ -28,7 +28,7 @@ class WaterQualityArchiveSDK
     utility = WaterQualityArchiveUtility.new
     @_utility = utility
 
-    config = WaterQualityArchiveConfig.make_config
+    config = WaterQualityArchiveConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,
