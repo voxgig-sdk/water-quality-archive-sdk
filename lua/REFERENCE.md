@@ -91,9 +91,9 @@ local measurement = client:Measurement(nil)
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `determinand` | `table` | No |  |
-| `id` | `string` | No |  |
+| `id` | `string` | No | Unique identifier for the measurement |
 | `purpose` | `table` | No |  |
-| `result` | `number` | No |  |
+| `result` | `number` | No | Measurement result value |
 | `resultQualifier` | `table` | No |  |
 | `sample` | `table` | No |  |
 | `samplingPoint` | `table` | No |  |

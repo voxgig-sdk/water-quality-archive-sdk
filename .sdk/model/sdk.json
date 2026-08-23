@@ -42,6 +42,7 @@
               "active": true,
               "name": "id",
               "req": false,
+              "short": "Unique identifier for the measurement",
               "type": "`$STRING`"
             },
             {
@@ -54,6 +55,7 @@
               "active": true,
               "name": "result",
               "req": false,
+              "short": "Measurement result value",
               "type": "`$NUMBER`"
             },
             {

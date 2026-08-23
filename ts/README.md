@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -288,9 +288,9 @@ The `prepare()` method returns:
 | Field | Description |
 | --- | --- |
 | `determinand` |  |
-| `id` |  |
+| `id` | Unique identifier for the measurement |
 | `purpose` |  |
-| `result` |  |
+| `result` | Measurement result value |
 | `resultQualifier` |  |
 | `sample` |  |
 | `samplingPoint` |  |
@@ -319,9 +319,9 @@ Create an instance: `const measurement = client.Measurement()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `determinand` | `Record<string, any>` |  |
-| `id` | `string` |  |
+| `id` | `string` | Unique identifier for the measurement |
 | `purpose` | `Record<string, any>` |  |
-| `result` | `number` |  |
+| `result` | `number` | Measurement result value |
 | `resultQualifier` | `Record<string, any>` |  |
 | `sample` | `Record<string, any>` |  |
 | `samplingPoint` | `Record<string, any>` |  |

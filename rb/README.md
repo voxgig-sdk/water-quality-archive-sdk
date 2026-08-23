@@ -238,9 +238,9 @@ returns a result `Hash` with these keys:
 | Field | Description |
 | --- | --- |
 | `determinand` |  |
-| `id` |  |
+| `id` | Unique identifier for the measurement |
 | `purpose` |  |
-| `result` |  |
+| `result` | Measurement result value |
 | `resultQualifier` |  |
 | `sample` |  |
 | `samplingPoint` |  |
@@ -269,9 +269,9 @@ Create an instance: `measurement = client.Measurement`
 | Field | Type | Description |
 | --- | --- | --- |
 | `determinand` | `Hash` |  |
-| `id` | `String` |  |
+| `id` | `String` | Unique identifier for the measurement |
 | `purpose` | `Hash` |  |
-| `result` | `Float` |  |
+| `result` | `Float` | Measurement result value |
 | `resultQualifier` | `Hash` |  |
 | `sample` | `Hash` |  |
 | `samplingPoint` | `Hash` |  |

@@ -99,9 +99,9 @@ fmt.Println(measurement.GetName()) // "measurement"
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `determinand` | `map[string]any` | No |  |
-| `id` | `string` | No |  |
+| `id` | `string` | No | Unique identifier for the measurement |
 | `purpose` | `map[string]any` | No |  |
-| `result` | `float64` | No |  |
+| `result` | `float64` | No | Measurement result value |
 | `resultQualifier` | `map[string]any` | No |  |
 | `sample` | `map[string]any` | No |  |
 | `samplingPoint` | `map[string]any` | No |  |

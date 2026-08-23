@@ -93,9 +93,9 @@ $measurement = $client->Measurement();
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `determinand` | `array` | No |  |
-| `id` | `string` | No |  |
+| `id` | `string` | No | Unique identifier for the measurement |
 | `purpose` | `array` | No |  |
-| `result` | `float` | No |  |
+| `result` | `float` | No | Measurement result value |
 | `resultQualifier` | `array` | No |  |
 | `sample` | `array` | No |  |
 | `samplingPoint` | `array` | No |  |

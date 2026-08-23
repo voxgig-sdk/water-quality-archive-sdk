@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "WaterQualityArchive",
+			"slug": "water-quality-archive",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -37,6 +40,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "id",
+						"short": "Unique identifier for the measurement",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -45,6 +49,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "result",
+						"short": "Measurement result value",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{

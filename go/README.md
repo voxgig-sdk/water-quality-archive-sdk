@@ -6,7 +6,7 @@ The Golang SDK for the WaterQualityArchive API — an entity-oriented client usi
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.Measurement(nil)` — each with the same small set of operations (`List`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -261,9 +261,9 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | Field | Description |
 | --- | --- |
 | `"determinand"` |  |
-| `"id"` |  |
+| `"id"` | Unique identifier for the measurement |
 | `"purpose"` |  |
-| `"result"` |  |
+| `"result"` | Measurement result value |
 | `"resultQualifier"` |  |
 | `"sample"` |  |
 | `"samplingPoint"` |  |
@@ -292,9 +292,9 @@ Create an instance: `measurement := client.Measurement(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `determinand` | `map[string]any` |  |
-| `id` | `string` |  |
+| `id` | `string` | Unique identifier for the measurement |
 | `purpose` | `map[string]any` |  |
-| `result` | `float64` |  |
+| `result` | `float64` | Measurement result value |
 | `resultQualifier` | `map[string]any` |  |
 | `sample` | `map[string]any` |  |
 | `samplingPoint` | `map[string]any` |  |

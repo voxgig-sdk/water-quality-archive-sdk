@@ -13,6 +13,7 @@ main: kit: entity: measurement: {
     {
       name: "id"
       req: false
+      short: "Unique identifier for the measurement"
       type: "`$STRING`"
     }
     {
@@ -23,6 +24,7 @@ main: kit: entity: measurement: {
     {
       name: "result"
       req: false
+      short: "Measurement result value"
       type: "`$NUMBER`"
     }
     {

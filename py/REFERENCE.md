@@ -88,9 +88,9 @@ measurement = client.Measurement()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `determinand` | `dict` | No |  |
-| `id` | `str` | No |  |
+| `id` | `str` | No | Unique identifier for the measurement |
 | `purpose` | `dict` | No |  |
-| `result` | `float` | No |  |
+| `result` | `float` | No | Measurement result value |
 | `resultQualifier` | `dict` | No |  |
 | `sample` | `dict` | No |  |
 | `samplingPoint` | `dict` | No |  |

@@ -248,9 +248,9 @@ On error, `ok` is `false` and `$err` contains the error value.
 | Field | Description |
 | --- | --- |
 | `determinand` |  |
-| `id` |  |
+| `id` | Unique identifier for the measurement |
 | `purpose` |  |
-| `result` |  |
+| `result` | Measurement result value |
 | `resultQualifier` |  |
 | `sample` |  |
 | `samplingPoint` |  |
@@ -279,9 +279,9 @@ Create an instance: `$measurement = $client->Measurement();`
 | Field | Type | Description |
 | --- | --- | --- |
 | `determinand` | `array` |  |
-| `id` | `string` |  |
+| `id` | `string` | Unique identifier for the measurement |
 | `purpose` | `array` |  |
-| `result` | `float` |  |
+| `result` | `float` | Measurement result value |
 | `resultQualifier` | `array` |  |
 | `sample` | `array` |  |
 | `samplingPoint` | `array` |  |

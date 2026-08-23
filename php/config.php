@@ -33,6 +33,9 @@ class WaterQualityArchiveConfig
         return [
             "main" => [
                 "name" => "WaterQualityArchive",
+                "slug" => "water-quality-archive",
+                "version" => "0.0.1",
+                "target" => "php",
             ],
             "feature" => [
                 "test" => [
@@ -59,6 +62,7 @@ class WaterQualityArchiveConfig
             ],
             [
               'name' => 'id',
+              'short' => 'Unique identifier for the measurement',
               'type' => '`$STRING`',
             ],
             [
@@ -67,6 +71,7 @@ class WaterQualityArchiveConfig
             ],
             [
               'name' => 'result',
+              'short' => 'Measurement result value',
               'type' => '`$NUMBER`',
             ],
             [

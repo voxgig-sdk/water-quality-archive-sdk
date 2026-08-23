@@ -7,6 +7,9 @@ local function make_config()
   return {
     main = {
       name = "WaterQualityArchive",
+      slug = "water-quality-archive",
+      version = "0.0.1",
+      target = "lua",
     },
     feature = {
       ["test"] = {
@@ -33,6 +36,7 @@ local function make_config()
           },
           {
             ["name"] = "id",
+            ["short"] = "Unique identifier for the measurement",
             ["type"] = "`$STRING`",
           },
           {
@@ -41,6 +45,7 @@ local function make_config()
           },
           {
             ["name"] = "result",
+            ["short"] = "Measurement result value",
             ["type"] = "`$NUMBER`",
           },
           {

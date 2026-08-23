@@ -19,6 +19,9 @@ module WaterQualityArchiveConfig
     {
       "main" => {
         "name" => "WaterQualityArchive",
+        "slug" => "water-quality-archive",
+        "version" => "0.0.1",
+        "target" => "rb",
       },
       "feature" => {
         "test" => {
@@ -45,6 +48,7 @@ module WaterQualityArchiveConfig
             },
             {
               "name" => "id",
+              "short" => "Unique identifier for the measurement",
               "type" => "`$STRING`",
             },
             {
@@ -53,6 +57,7 @@ module WaterQualityArchiveConfig
             },
             {
               "name" => "result",
+              "short" => "Measurement result value",
               "type" => "`$NUMBER`",
             },
             {

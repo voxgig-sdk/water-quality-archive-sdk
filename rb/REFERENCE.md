@@ -94,9 +94,9 @@ measurement = client.Measurement
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `determinand` | `Hash` | No |  |
-| `id` | `String` | No |  |
+| `id` | `String` | No | Unique identifier for the measurement |
 | `purpose` | `Hash` | No |  |
-| `result` | `Float` | No |  |
+| `result` | `Float` | No | Measurement result value |
 | `resultQualifier` | `Hash` | No |  |
 | `sample` | `Hash` | No |  |
 | `samplingPoint` | `Hash` | No |  |

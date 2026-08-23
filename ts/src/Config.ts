@@ -19,9 +19,20 @@ class Config {
     return fi
   }
 
+  // False for a feature added at runtime via options.extend (station's
+  // adopt path) - the constructor uses this to skip makeFeature for names
+  // no generated class backs.
+  hasFeature(this: any, fn: string) {
+    return null != FEATURE_CLASS[fn]
+  }
+
 
   main = {
     name: 'WaterQualityArchive',
+        slug: "water-quality-archive",
+    version: "0.0.1",
+    target: "ts",
+
   }
 
 
@@ -60,6 +71,7 @@ class Config {
         },
         {
           "name": "id",
+          "short": "Unique identifier for the measurement",
           "type": "`$STRING`"
         },
         {
@@ -68,6 +80,7 @@ class Config {
         },
         {
           "name": "result",
+          "short": "Measurement result value",
           "type": "`$NUMBER`"
         },
         {

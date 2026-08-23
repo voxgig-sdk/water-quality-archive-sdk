@@ -232,9 +232,9 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | Field | Description |
 | --- | --- |
 | `determinand` |  |
-| `id` |  |
+| `id` | Unique identifier for the measurement |
 | `purpose` |  |
-| `result` |  |
+| `result` | Measurement result value |
 | `resultQualifier` |  |
 | `sample` |  |
 | `samplingPoint` |  |
@@ -263,9 +263,9 @@ Create an instance: `local measurement = client:Measurement(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `determinand` | `table` |  |
-| `id` | `string` |  |
+| `id` | `string` | Unique identifier for the measurement |
 | `purpose` | `table` |  |
-| `result` | `number` |  |
+| `result` | `number` | Measurement result value |
 | `resultQualifier` | `table` |  |
 | `sample` | `table` |  |
 | `samplingPoint` | `table` |  |

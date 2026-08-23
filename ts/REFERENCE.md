@@ -117,9 +117,9 @@ const measurement = client.Measurement()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `determinand` | `Record<string, any>` | No |  |
-| `id` | `string` | No |  |
+| `id` | `string` | No | Unique identifier for the measurement |
 | `purpose` | `Record<string, any>` | No |  |
-| `result` | `number` | No |  |
+| `result` | `number` | No | Measurement result value |
 | `resultQualifier` | `Record<string, any>` | No |  |
 | `sample` | `Record<string, any>` | No |  |
 | `samplingPoint` | `Record<string, any>` | No |  |

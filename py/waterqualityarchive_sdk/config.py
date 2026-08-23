@@ -28,6 +28,9 @@ def make_config():
     return {
         "main": {
             "name": "WaterQualityArchive",
+            "slug": "water-quality-archive",
+            "version": "0.0.1",
+            "target": "py",
         },
         "feature": {
             "test": {
@@ -54,6 +57,7 @@ def make_config():
           },
           {
             "name": "id",
+            "short": "Unique identifier for the measurement",
             "type": "`$STRING`",
           },
           {
@@ -62,6 +66,7 @@ def make_config():
           },
           {
             "name": "result",
+            "short": "Measurement result value",
             "type": "`$NUMBER`",
           },
           {

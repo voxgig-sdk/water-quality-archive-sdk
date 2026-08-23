@@ -244,9 +244,9 @@ On error, `ok` is `False` and `err` contains the error value.
 | Field | Description |
 | --- | --- |
 | `determinand` |  |
-| `id` |  |
+| `id` | Unique identifier for the measurement |
 | `purpose` |  |
-| `result` |  |
+| `result` | Measurement result value |
 | `resultQualifier` |  |
 | `sample` |  |
 | `samplingPoint` |  |
@@ -275,9 +275,9 @@ Create an instance: `measurement = client.Measurement()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `determinand` | `dict` |  |
-| `id` | `str` |  |
+| `id` | `str` | Unique identifier for the measurement |
 | `purpose` | `dict` |  |
-| `result` | `float` |  |
+| `result` | `float` | Measurement result value |
 | `resultQualifier` | `dict` |  |
 | `sample` | `dict` |  |
 | `samplingPoint` | `dict` |  |
