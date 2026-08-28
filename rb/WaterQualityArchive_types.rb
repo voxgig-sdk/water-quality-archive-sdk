@@ -43,34 +43,46 @@ Measurement = Struct.new(
 
 # Request payload for Measurement#list.
 #
-# @!attribute [rw] determinand
-#   @return [Hash, nil]
-#
-# @!attribute [rw] id
+# @!attribute [rw] area
 #   @return [String, nil]
 #
+# @!attribute [rw] determinand
+#   @return [String, nil]
+#
+# @!attribute [rw] end_date
+#   @return [String, nil]
+#
+# @!attribute [rw] format
+#   @return [String, nil]
+#
+# @!attribute [rw] limit
+#   @return [Integer, nil]
+#
+# @!attribute [rw] offset
+#   @return [Integer, nil]
+#
 # @!attribute [rw] purpose
-#   @return [Hash, nil]
+#   @return [String, nil]
 #
-# @!attribute [rw] result
-#   @return [Float, nil]
+# @!attribute [rw] sampling_point
+#   @return [String, nil]
 #
-# @!attribute [rw] resultQualifier
-#   @return [Hash, nil]
+# @!attribute [rw] start_date
+#   @return [String, nil]
 #
-# @!attribute [rw] sample
-#   @return [Hash, nil]
-#
-# @!attribute [rw] samplingPoint
-#   @return [Hash, nil]
+# @!attribute [rw] water_body
+#   @return [String, nil]
 MeasurementListMatch = Struct.new(
+  :area,
   :determinand,
-  :id,
+  :end_date,
+  :format,
+  :limit,
+  :offset,
   :purpose,
-  :result,
-  :resultQualifier,
-  :sample,
-  :samplingPoint,
+  :sampling_point,
+  :start_date,
+  :water_body,
   keyword_init: true
 )
 

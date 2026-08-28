@@ -25,13 +25,16 @@ type Measurement struct {
 
 // MeasurementListMatch is the typed request payload for Measurement.ListTyped.
 type MeasurementListMatch struct {
-	Determinand *map[string]any `json:"determinand,omitempty"`
-	Id *string `json:"id,omitempty"`
-	Purpose *map[string]any `json:"purpose,omitempty"`
-	Result *float64 `json:"result,omitempty"`
-	ResultQualifier *map[string]any `json:"resultQualifier,omitempty"`
-	Sample *map[string]any `json:"sample,omitempty"`
-	SamplingPoint *map[string]any `json:"samplingPoint,omitempty"`
+	Area *string `json:"area,omitempty"`
+	Determinand *string `json:"determinand,omitempty"`
+	EndDate *string `json:"end_date,omitempty"`
+	Format *string `json:"format,omitempty"`
+	Limit *int `json:"limit,omitempty"`
+	Offset *int `json:"offset,omitempty"`
+	Purpose *string `json:"purpose,omitempty"`
+	SamplingPoint *string `json:"sampling_point,omitempty"`
+	StartDate *string `json:"start_date,omitempty"`
+	WaterBody *string `json:"water_body,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

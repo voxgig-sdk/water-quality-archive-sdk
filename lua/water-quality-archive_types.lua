@@ -16,13 +16,16 @@
 ---@field samplingPoint? table
 
 ---@class MeasurementListMatch
----@field determinand? table
----@field id? string
----@field purpose? table
----@field result? number
----@field resultQualifier? table
----@field sample? table
----@field samplingPoint? table
+---@field area? string
+---@field determinand? string
+---@field end_date? string
+---@field format? string
+---@field limit? number
+---@field offset? number
+---@field purpose? string
+---@field sampling_point? string
+---@field start_date? string
+---@field water_body? string
 
 local M = {}
 

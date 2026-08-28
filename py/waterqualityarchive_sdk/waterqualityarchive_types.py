@@ -27,10 +27,13 @@ class Measurement(TypedDict, total=False):
 
 
 class MeasurementListMatch(TypedDict, total=False):
-    determinand: dict
-    id: str
-    purpose: dict
-    result: float
-    resultQualifier: dict
-    sample: dict
-    samplingPoint: dict
+    area: str
+    determinand: str
+    end_date: str
+    format: str
+    limit: int
+    offset: int
+    purpose: str
+    sampling_point: str
+    start_date: str
+    water_body: str

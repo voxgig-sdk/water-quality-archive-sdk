@@ -27,12 +27,15 @@ class Measurement
 /** Request payload for Measurement#list. */
 class MeasurementListMatch
 {
-    public ?array $determinand = null;
-    public ?string $id = null;
-    public ?array $purpose = null;
-    public ?float $result = null;
-    public ?array $resultQualifier = null;
-    public ?array $sample = null;
-    public ?array $samplingPoint = null;
+    public ?string $area = null;
+    public ?string $determinand = null;
+    public ?string $end_date = null;
+    public ?string $format = null;
+    public ?int $limit = null;
+    public ?int $offset = null;
+    public ?string $purpose = null;
+    public ?string $sampling_point = null;
+    public ?string $start_date = null;
+    public ?string $water_body = null;
 }
 
