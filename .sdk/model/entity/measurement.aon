@@ -134,9 +134,13 @@ main: kit: entity: measurement: {
           }
           method: "GET"
           orig: "/data/measurement"
-          parts: [
-            "data"
-            "measurement"
+          segments: [
+            {
+              lit: "data"
+            }
+            {
+              lit: "measurement"
+            }
           ]
           select: {
             exist: [

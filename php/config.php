@@ -88,6 +88,10 @@ class WaterQualityArchiveConfig
               'type' => '`$OBJECT`',
             ],
           ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
+          ],
           'name' => 'measurement',
           'op' => [
             'list' => [
@@ -165,9 +169,13 @@ class WaterQualityArchiveConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/data/measurement',
-                  'parts' => [
-                    'data',
-                    'measurement',
+                  'segments' => [
+                    [
+                      'lit' => 'data',
+                    ],
+                    [
+                      'lit' => 'measurement',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -186,6 +194,10 @@ class WaterQualityArchiveConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'data',
+                    'measurement',
                   ],
                 ],
               ],

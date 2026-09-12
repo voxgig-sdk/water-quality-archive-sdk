@@ -74,6 +74,10 @@ module WaterQualityArchiveConfig
               "type" => "`$OBJECT`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "measurement",
           "op" => {
             "list" => {
@@ -151,9 +155,13 @@ module WaterQualityArchiveConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/data/measurement",
-                  "parts" => [
-                    "data",
-                    "measurement",
+                  "segments" => [
+                    {
+                      "lit" => "data",
+                    },
+                    {
+                      "lit" => "measurement",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -173,6 +181,10 @@ module WaterQualityArchiveConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "data",
+                    "measurement",
+                  ],
                 },
               ],
             },
