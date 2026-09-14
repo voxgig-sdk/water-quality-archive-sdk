@@ -105,7 +105,7 @@ local results, err = client:Measurement():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/water-quality-archive` | publish pending — [install from git tag](https://github.com/voxgig-sdk/water-quality-archive-sdk/releases) |
+| TypeScript | `@voxgig-sdk/water-quality-archive-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/water-quality-archive-sdk/releases) |
 | Python | `voxgig-sdk-water-quality-archive` | publish pending — [install from git tag](https://github.com/voxgig-sdk/water-quality-archive-sdk/releases) |
 | PHP | `voxgig-sdk/water-quality-archive` | publish pending — [install from git tag](https://github.com/voxgig-sdk/water-quality-archive-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/water-quality-archive-sdk/go` | `go get github.com/voxgig-sdk/water-quality-archive-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:Measurement():list()
 ### TypeScript
 
 ```ts
-import { WaterQualityArchiveSDK } from '@voxgig-sdk/water-quality-archive'
+import { WaterQualityArchiveSDK } from '@voxgig-sdk/water-quality-archive-sdk'
 
 const client = new WaterQualityArchiveSDK()
 

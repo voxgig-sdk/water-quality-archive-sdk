@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { WaterQualityArchiveSDK } from '@voxgig-sdk/water-quality-archive'
+import { WaterQualityArchiveSDK } from '@voxgig-sdk/water-quality-archive-sdk'
 
 const client = new WaterQualityArchiveSDK()
 ```
@@ -415,7 +415,7 @@ water-quality-archive/
 Import the SDK from the package root:
 
 ```ts
-import { WaterQualityArchiveSDK } from '@voxgig-sdk/water-quality-archive'
+import { WaterQualityArchiveSDK } from '@voxgig-sdk/water-quality-archive-sdk'
 ```
 
 ### Entity state
