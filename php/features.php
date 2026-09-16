@@ -4,7 +4,10 @@ declare(strict_types=1);
 // WaterQualityArchive SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class WaterQualityArchiveFeatures
@@ -14,8 +17,14 @@ class WaterQualityArchiveFeatures
         switch ($name) {
             case "base":
                 return new WaterQualityArchiveBaseFeature();
+            case "ratelimit":
+                return new WaterQualityArchiveRatelimitFeature();
+            case "retry":
+                return new WaterQualityArchiveRetryFeature();
             case "test":
                 return new WaterQualityArchiveTestFeature();
+            case "timeout":
+                return new WaterQualityArchiveTimeoutFeature();
             default:
                 return new WaterQualityArchiveBaseFeature();
         }
@@ -31,7 +40,10 @@ class WaterQualityArchiveFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;

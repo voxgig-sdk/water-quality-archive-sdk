@@ -1,12 +1,18 @@
 # WaterQualityArchive SDK feature factory
 
 from waterqualityarchive_sdk.feature.base_feature import WaterQualityArchiveBaseFeature
+from waterqualityarchive_sdk.feature.ratelimit_feature import WaterQualityArchiveRatelimitFeature
+from waterqualityarchive_sdk.feature.retry_feature import WaterQualityArchiveRetryFeature
 from waterqualityarchive_sdk.feature.test_feature import WaterQualityArchiveTestFeature
+from waterqualityarchive_sdk.feature.timeout_feature import WaterQualityArchiveTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: WaterQualityArchiveBaseFeature(),
+    "ratelimit": lambda: WaterQualityArchiveRatelimitFeature(),
+    "retry": lambda: WaterQualityArchiveRetryFeature(),
     "test": lambda: WaterQualityArchiveTestFeature(),
+    "timeout": lambda: WaterQualityArchiveTimeoutFeature(),
 }
 
 
