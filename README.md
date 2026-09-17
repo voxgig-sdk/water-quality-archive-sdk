@@ -105,12 +105,12 @@ local results, err = client:Measurement():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/water-quality-archive-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/water-quality-archive-sdk/releases) |
-| Python | `voxgig-sdk-water-quality-archive` | publish pending — [install from git tag](https://github.com/voxgig-sdk/water-quality-archive-sdk/releases) |
-| PHP | `voxgig-sdk/water-quality-archive` | publish pending — [install from git tag](https://github.com/voxgig-sdk/water-quality-archive-sdk/releases) |
+| TypeScript | `@voxgig-sdk/water-quality-archive-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/water-quality-archive-sdk/tags) |
+| Python | `voxgig-sdk-water-quality-archive` | publish pending — [install from git tag](https://github.com/voxgig-sdk/water-quality-archive-sdk/tags) |
+| PHP | `voxgig-sdk/water-quality-archive` | publish pending — [install from git tag](https://github.com/voxgig-sdk/water-quality-archive-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/water-quality-archive-sdk/go` | `go get github.com/voxgig-sdk/water-quality-archive-sdk/go@latest` |
-| Ruby | `voxgig-sdk-water-quality-archive` | publish pending — [install from git tag](https://github.com/voxgig-sdk/water-quality-archive-sdk/releases) |
-| Lua | `voxgig-sdk-water-quality-archive` | publish pending — [install from git tag](https://github.com/voxgig-sdk/water-quality-archive-sdk/releases) |
+| Ruby | `voxgig-sdk-water-quality-archive` | publish pending — [install from git tag](https://github.com/voxgig-sdk/water-quality-archive-sdk/tags) |
+| Lua | `voxgig-sdk-water-quality-archive` | publish pending — [install from git tag](https://github.com/voxgig-sdk/water-quality-archive-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/water-quality-archive-sdk/go-cli` | `go install github.com/voxgig-sdk/water-quality-archive-sdk/go-cli/cmd/water-quality-archive@latest` |
 | Go MCP server | `github.com/voxgig-sdk/water-quality-archive-sdk/go-mcp` | `go get github.com/voxgig-sdk/water-quality-archive-sdk/go-mcp@latest` |
 
