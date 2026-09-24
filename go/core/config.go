@@ -91,32 +91,39 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "determinand",
+						"title": "Determinand",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "id",
-						"short": "Unique identifier for the measurement",
+						"title": "Id",
 						"type": "`$STRING`",
+						"short": "Unique identifier for the measurement",
 					},
 					map[string]any{
 						"name": "purpose",
+						"title": "Purpose",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "result",
-						"short": "Measurement result value",
+						"title": "Result",
 						"type": "`$NUMBER`",
+						"short": "Measurement result value",
 					},
 					map[string]any{
 						"name": "resultQualifier",
+						"title": "Result Qualifier",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "sample",
+						"title": "Sample",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "samplingPoint",
+						"title": "Sampling Point",
 						"type": "`$OBJECT`",
 					},
 				},
@@ -131,73 +138,6 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"kind": "query",
-											"name": "area",
-											"orig": "area",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "determinand",
-											"orig": "determinand",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "end_date",
-											"orig": "end_date",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": "json",
-											"kind": "query",
-											"name": "format",
-											"orig": "format",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": 100,
-											"kind": "query",
-											"name": "limit",
-											"orig": "limit",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"example": 0,
-											"kind": "query",
-											"name": "offset",
-											"orig": "offset",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "purpose",
-											"orig": "purpose",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "sampling_point",
-											"orig": "sampling_point",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "start_date",
-											"orig": "start_date",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "water_body",
-											"orig": "water_body",
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/data/measurement",
@@ -207,6 +147,82 @@ func MakeConfig() map[string]any {
 									},
 									map[string]any{
 										"lit": "measurement",
+									},
+								},
+								"parts": []any{
+									"data",
+									"measurement",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "area",
+											"orig": "area",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "determinand",
+											"orig": "determinand",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "end_date",
+											"orig": "end_date",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "format",
+											"orig": "format",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "json",
+										},
+										map[string]any{
+											"name": "limit",
+											"orig": "limit",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 100,
+										},
+										map[string]any{
+											"name": "offset",
+											"orig": "offset",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 0,
+										},
+										map[string]any{
+											"name": "purpose",
+											"orig": "purpose",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "sampling_point",
+											"orig": "sampling_point",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "start_date",
+											"orig": "start_date",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "water_body",
+											"orig": "water_body",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
 									},
 								},
 								"select": map[string]any{
@@ -222,14 +238,6 @@ func MakeConfig() map[string]any {
 										"start_date",
 										"water_body",
 									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"parts": []any{
-									"data",
-									"measurement",
 								},
 							},
 						},

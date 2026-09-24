@@ -19,7 +19,6 @@ import type {
   MeasurementListMatch,
 } from '../WaterQualityArchiveTypes'
 
-// TODO: needs Entity superclass
 class MeasurementEntity extends WaterQualityArchiveEntityBase<Measurement> {
 
   constructor(client: WaterQualityArchiveSDK, entopts: any) {

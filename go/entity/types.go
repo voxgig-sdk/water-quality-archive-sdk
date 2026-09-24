@@ -1,7 +1,7 @@
 // Typed models for the WaterQualityArchive SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,13 +14,6 @@ import (
 
 // Measurement is the typed data model for the measurement entity.
 type Measurement struct {
-	Determinand *map[string]any `json:"determinand,omitempty"`
-	Id *string `json:"id,omitempty"`
-	Purpose *map[string]any `json:"purpose,omitempty"`
-	Result *float64 `json:"result,omitempty"`
-	ResultQualifier *map[string]any `json:"resultQualifier,omitempty"`
-	Sample *map[string]any `json:"sample,omitempty"`
-	SamplingPoint *map[string]any `json:"samplingPoint,omitempty"`
 }
 
 // MeasurementListMatch is the typed request payload for Measurement.ListTyped.

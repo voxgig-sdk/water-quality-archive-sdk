@@ -43,7 +43,7 @@ local measurements, err = client:Measurement():list()
 if err then error(err) end
 
 for _, item in ipairs(measurements) do
-  print(item["id"], item["determinand"])
+  print(item["id"])
 end
 ```
 

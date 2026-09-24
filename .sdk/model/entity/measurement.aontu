@@ -1,0 +1,182 @@
+# Entity: measurement
+
+main: kit: entity: measurement: {
+
+  alias: field: {}
+
+  fields: {
+    determinand: {
+      h: "Determinand"
+      n: "determinand"
+      r: false
+      t: "`$OBJECT`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      sh: "Unique identifier for the measurement"
+      t: "`$STRING`"
+    }
+    purpose: {
+      h: "Purpose"
+      n: "purpose"
+      r: false
+      t: "`$OBJECT`"
+    }
+    result: {
+      h: "Result"
+      n: "result"
+      r: false
+      sh: "Measurement result value"
+      t: "`$NUMBER`"
+    }
+    resultQualifier: {
+      h: "Result Qualifier"
+      n: "resultQualifier"
+      r: false
+      t: "`$OBJECT`"
+    }
+    sample: {
+      h: "Sample"
+      n: "sample"
+      r: false
+      t: "`$OBJECT`"
+    }
+    samplingPoint: {
+      h: "Sampling Point"
+      n: "samplingPoint"
+      r: false
+      t: "`$OBJECT`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "measurement"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /data/measurement"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "area"
+                or: "area"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "determinand"
+                or: "determinand"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "end_date"
+                or: "end_date"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "json"
+                k: "query"
+                n: "format"
+                or: "format"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 100
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 0
+                k: "query"
+                n: "offset"
+                or: "offset"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "purpose"
+                or: "purpose"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "sampling_point"
+                or: "sampling_point"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "start_date"
+                or: "start_date"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "water_body"
+                or: "water_body"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/data/measurement"
+          q: {
+            exist: [
+              "area"
+              "determinand"
+              "end_date"
+              "format"
+              "limit"
+              "offset"
+              "purpose"
+              "sampling_point"
+              "start_date"
+              "water_body"
+            ]
+          }
+          s: [
+            {
+              lit: "data"
+            }
+            {
+              lit: "measurement"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

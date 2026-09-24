@@ -113,32 +113,39 @@ class WaterQualityArchiveConfig
           'fields' => [
             [
               'name' => 'determinand',
+              'title' => 'Determinand',
               'type' => '`$OBJECT`',
             ],
             [
               'name' => 'id',
-              'short' => 'Unique identifier for the measurement',
+              'title' => 'Id',
               'type' => '`$STRING`',
+              'short' => 'Unique identifier for the measurement',
             ],
             [
               'name' => 'purpose',
+              'title' => 'Purpose',
               'type' => '`$OBJECT`',
             ],
             [
               'name' => 'result',
-              'short' => 'Measurement result value',
+              'title' => 'Result',
               'type' => '`$NUMBER`',
+              'short' => 'Measurement result value',
             ],
             [
               'name' => 'resultQualifier',
+              'title' => 'Result Qualifier',
               'type' => '`$OBJECT`',
             ],
             [
               'name' => 'sample',
+              'title' => 'Sample',
               'type' => '`$OBJECT`',
             ],
             [
               'name' => 'samplingPoint',
+              'title' => 'Sampling Point',
               'type' => '`$OBJECT`',
             ],
           ],
@@ -153,73 +160,6 @@ class WaterQualityArchiveConfig
               'name' => 'list',
               'points' => [
                 [
-                  'args' => [
-                    'query' => [
-                      [
-                        'kind' => 'query',
-                        'name' => 'area',
-                        'orig' => 'area',
-                        'type' => '`$STRING`',
-                      ],
-                      [
-                        'kind' => 'query',
-                        'name' => 'determinand',
-                        'orig' => 'determinand',
-                        'type' => '`$STRING`',
-                      ],
-                      [
-                        'kind' => 'query',
-                        'name' => 'end_date',
-                        'orig' => 'end_date',
-                        'type' => '`$STRING`',
-                      ],
-                      [
-                        'example' => 'json',
-                        'kind' => 'query',
-                        'name' => 'format',
-                        'orig' => 'format',
-                        'type' => '`$STRING`',
-                      ],
-                      [
-                        'example' => 100,
-                        'kind' => 'query',
-                        'name' => 'limit',
-                        'orig' => 'limit',
-                        'type' => '`$INTEGER`',
-                      ],
-                      [
-                        'example' => 0,
-                        'kind' => 'query',
-                        'name' => 'offset',
-                        'orig' => 'offset',
-                        'type' => '`$INTEGER`',
-                      ],
-                      [
-                        'kind' => 'query',
-                        'name' => 'purpose',
-                        'orig' => 'purpose',
-                        'type' => '`$STRING`',
-                      ],
-                      [
-                        'kind' => 'query',
-                        'name' => 'sampling_point',
-                        'orig' => 'sampling_point',
-                        'type' => '`$STRING`',
-                      ],
-                      [
-                        'kind' => 'query',
-                        'name' => 'start_date',
-                        'orig' => 'start_date',
-                        'type' => '`$STRING`',
-                      ],
-                      [
-                        'kind' => 'query',
-                        'name' => 'water_body',
-                        'orig' => 'water_body',
-                        'type' => '`$STRING`',
-                      ],
-                    ],
-                  ],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/data/measurement',
@@ -229,6 +169,82 @@ class WaterQualityArchiveConfig
                     ],
                     [
                       'lit' => 'measurement',
+                    ],
+                  ],
+                  'parts' => [
+                    'data',
+                    'measurement',
+                  ],
+                  'rename' => [],
+                  'transform' => [
+                    'req' => '`reqdata`',
+                    'res' => '`body`',
+                  ],
+                  'args' => [
+                    'query' => [
+                      [
+                        'name' => 'area',
+                        'orig' => 'area',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                      ],
+                      [
+                        'name' => 'determinand',
+                        'orig' => 'determinand',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                      ],
+                      [
+                        'name' => 'end_date',
+                        'orig' => 'end_date',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                      ],
+                      [
+                        'name' => 'format',
+                        'orig' => 'format',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                        'example' => 'json',
+                      ],
+                      [
+                        'name' => 'limit',
+                        'orig' => 'limit',
+                        'type' => '`$INTEGER`',
+                        'kind' => 'query',
+                        'example' => 100,
+                      ],
+                      [
+                        'name' => 'offset',
+                        'orig' => 'offset',
+                        'type' => '`$INTEGER`',
+                        'kind' => 'query',
+                        'example' => 0,
+                      ],
+                      [
+                        'name' => 'purpose',
+                        'orig' => 'purpose',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                      ],
+                      [
+                        'name' => 'sampling_point',
+                        'orig' => 'sampling_point',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                      ],
+                      [
+                        'name' => 'start_date',
+                        'orig' => 'start_date',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                      ],
+                      [
+                        'name' => 'water_body',
+                        'orig' => 'water_body',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                      ],
                     ],
                   ],
                   'select' => [
@@ -244,14 +260,6 @@ class WaterQualityArchiveConfig
                       'start_date',
                       'water_body',
                     ],
-                  ],
-                  'transform' => [
-                    'req' => '`reqdata`',
-                    'res' => '`body`',
-                  ],
-                  'parts' => [
-                    'data',
-                    'measurement',
                   ],
                 ],
               ],

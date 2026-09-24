@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MeasurementEntity = void 0;
 const WaterQualityArchiveEntityBase_1 = require("../WaterQualityArchiveEntityBase");
-// TODO: needs Entity superclass
 class MeasurementEntity extends WaterQualityArchiveEntityBase_1.WaterQualityArchiveEntityBase {
     constructor(client, entopts) {
         super(client, entopts);
