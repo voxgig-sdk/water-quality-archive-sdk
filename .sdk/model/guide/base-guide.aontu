@@ -11,6 +11,7 @@ guide: {
   entity: measurement: {
     path: "/data/measurement": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.items`")|top
     }
   }
 

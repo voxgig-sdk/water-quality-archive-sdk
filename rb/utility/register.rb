@@ -33,6 +33,8 @@ require_relative 'transform_response'
 
 WaterQualityArchiveUtility.registrar = ->(u) {
   u.clean = WaterQualityArchiveUtilities::Clean
+  u.clean_add = WaterQualityArchiveUtilities::CleanAdd
+  u.clean_explain = WaterQualityArchiveUtilities::CleanExplain
   u.done = WaterQualityArchiveUtilities::Done
   u.make_error = WaterQualityArchiveUtilities::MakeError
   u.feature_add = WaterQualityArchiveUtilities::FeatureAdd

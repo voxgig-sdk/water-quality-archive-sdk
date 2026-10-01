@@ -86,7 +86,7 @@ main: kit: entity: measurement: {
               {
                 k: "query"
                 n: "end_date"
-                or: "end_date"
+                or: "endDate"
                 r: false
                 t: "`$STRING`"
               }
@@ -102,7 +102,7 @@ main: kit: entity: measurement: {
                 ex: 100
                 k: "query"
                 n: "limit"
-                or: "limit"
+                or: "_limit"
                 r: false
                 t: "`$INTEGER`"
               }
@@ -110,7 +110,7 @@ main: kit: entity: measurement: {
                 ex: 0
                 k: "query"
                 n: "offset"
-                or: "offset"
+                or: "_offset"
                 r: false
                 t: "`$INTEGER`"
               }
@@ -124,21 +124,21 @@ main: kit: entity: measurement: {
               {
                 k: "query"
                 n: "sampling_point"
-                or: "sampling_point"
+                or: "samplingPoint"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "start_date"
-                or: "start_date"
+                or: "startDate"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "water_body"
-                or: "water_body"
+                or: "waterBody"
                 r: false
                 t: "`$STRING`"
               }
@@ -170,7 +170,7 @@ main: kit: entity: measurement: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.items`"
           }
         }
       ]

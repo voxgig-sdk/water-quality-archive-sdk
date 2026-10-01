@@ -156,7 +156,7 @@ func MakeConfig() map[string]any {
 								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.items`",
 								},
 								"args": map[string]any{
 									"query": []any{
@@ -174,7 +174,7 @@ func MakeConfig() map[string]any {
 										},
 										map[string]any{
 											"name": "end_date",
-											"orig": "end_date",
+											"orig": "endDate",
 											"type": "`$STRING`",
 											"kind": "query",
 										},
@@ -187,14 +187,14 @@ func MakeConfig() map[string]any {
 										},
 										map[string]any{
 											"name": "limit",
-											"orig": "limit",
+											"orig": "_limit",
 											"type": "`$INTEGER`",
 											"kind": "query",
 											"example": 100,
 										},
 										map[string]any{
 											"name": "offset",
-											"orig": "offset",
+											"orig": "_offset",
 											"type": "`$INTEGER`",
 											"kind": "query",
 											"example": 0,
@@ -207,19 +207,19 @@ func MakeConfig() map[string]any {
 										},
 										map[string]any{
 											"name": "sampling_point",
-											"orig": "sampling_point",
+											"orig": "samplingPoint",
 											"type": "`$STRING`",
 											"kind": "query",
 										},
 										map[string]any{
 											"name": "start_date",
-											"orig": "start_date",
+											"orig": "startDate",
 											"type": "`$STRING`",
 											"kind": "query",
 										},
 										map[string]any{
 											"name": "water_body",
-											"orig": "water_body",
+											"orig": "waterBody",
 											"type": "`$STRING`",
 											"kind": "query",
 										},

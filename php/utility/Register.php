@@ -37,6 +37,8 @@ require_once __DIR__ . '/TransformResponse.php';
 
 WaterQualityArchiveUtility::setRegistrar(function (WaterQualityArchiveUtility $u): void {
     $u->clean = [WaterQualityArchiveClean::class, 'call'];
+    $u->clean_add = [WaterQualityArchiveClean::class, 'add'];
+    $u->clean_explain = [WaterQualityArchiveDone::class, 'clean_explain'];
     $u->done = [WaterQualityArchiveDone::class, 'call'];
     $u->make_error = [WaterQualityArchiveMakeError::class, 'call'];
     $u->feature_add = [WaterQualityArchiveFeatureAdd::class, 'call'];

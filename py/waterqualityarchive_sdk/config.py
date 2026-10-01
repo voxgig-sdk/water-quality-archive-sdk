@@ -181,7 +181,7 @@ def make_config():
                 "rename": {},
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body`",
+                  "res": "`body.items`",
                 },
                 "args": {
                   "query": [
@@ -199,7 +199,7 @@ def make_config():
                     },
                     {
                       "name": "end_date",
-                      "orig": "end_date",
+                      "orig": "endDate",
                       "type": "`$STRING`",
                       "kind": "query",
                     },
@@ -212,14 +212,14 @@ def make_config():
                     },
                     {
                       "name": "limit",
-                      "orig": "limit",
+                      "orig": "_limit",
                       "type": "`$INTEGER`",
                       "kind": "query",
                       "example": 100,
                     },
                     {
                       "name": "offset",
-                      "orig": "offset",
+                      "orig": "_offset",
                       "type": "`$INTEGER`",
                       "kind": "query",
                       "example": 0,
@@ -232,19 +232,19 @@ def make_config():
                     },
                     {
                       "name": "sampling_point",
-                      "orig": "sampling_point",
+                      "orig": "samplingPoint",
                       "type": "`$STRING`",
                       "kind": "query",
                     },
                     {
                       "name": "start_date",
-                      "orig": "start_date",
+                      "orig": "startDate",
                       "type": "`$STRING`",
                       "kind": "query",
                     },
                     {
                       "name": "water_body",
-                      "orig": "water_body",
+                      "orig": "waterBody",
                       "type": "`$STRING`",
                       "kind": "query",
                     },

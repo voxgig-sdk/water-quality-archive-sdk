@@ -188,7 +188,7 @@
                         "a": true,
                         "k": "query",
                         "n": "end_date",
-                        "or": "end_date",
+                        "or": "endDate",
                         "r": false,
                         "t": "`$STRING`"
                       },
@@ -206,7 +206,7 @@
                         "ex": 100,
                         "k": "query",
                         "n": "limit",
-                        "or": "limit",
+                        "or": "_limit",
                         "r": false,
                         "t": "`$INTEGER`"
                       },
@@ -215,7 +215,7 @@
                         "ex": 0,
                         "k": "query",
                         "n": "offset",
-                        "or": "offset",
+                        "or": "_offset",
                         "r": false,
                         "t": "`$INTEGER`"
                       },
@@ -231,7 +231,7 @@
                         "a": true,
                         "k": "query",
                         "n": "sampling_point",
-                        "or": "sampling_point",
+                        "or": "samplingPoint",
                         "r": false,
                         "t": "`$STRING`"
                       },
@@ -239,7 +239,7 @@
                         "a": true,
                         "k": "query",
                         "n": "start_date",
-                        "or": "start_date",
+                        "or": "startDate",
                         "r": false,
                         "t": "`$STRING`"
                       },
@@ -247,7 +247,7 @@
                         "a": true,
                         "k": "query",
                         "n": "water_body",
-                        "or": "water_body",
+                        "or": "waterBody",
                         "r": false,
                         "t": "`$STRING`"
                       }
@@ -281,7 +281,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.items`"
                   }
                 }
               ]
@@ -768,7 +768,12 @@
         },
         "base": "http://localhost:8000",
         "clean": {
-          "keys": "key,token,id"
+          "active": true,
+          "hint": "0",
+          "keys": "key,secret,token,password,passwd,authorization,cookie,credential,signature",
+          "mask": "[redacted]",
+          "min": "4",
+          "values": ""
         },
         "entity": {
           "`$CHILD`": {
