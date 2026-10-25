@@ -19,15 +19,21 @@ const PLAN = [
             "area": "v1",
             "determinand": "v1",
             "end_date": "v1",
-            "format": "v1",
-            "limit": "v1",
-            "offset": "v1",
+            "format": "json",
+            "limit": 100,
+            "offset": 0,
             "purpose": "v1",
             "sampling_point": "v1",
             "start_date": "v1",
             "water_body": "v1"
         },
         "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "application/json",
+            "text/csv",
+            "application/xml"
+        ],
         "query": [
             "samplingPoint",
             "determinand",
@@ -40,38 +46,86 @@ const PLAN = [
             "_limit",
             "_offset"
         ],
+        "queryArgs": [
+            {
+                "name": "area",
+                "wire": "area"
+            },
+            {
+                "name": "determinand",
+                "wire": "determinand"
+            },
+            {
+                "name": "end_date",
+                "wire": "endDate"
+            },
+            {
+                "name": "format",
+                "wire": "format"
+            },
+            {
+                "name": "limit",
+                "wire": "_limit"
+            },
+            {
+                "name": "offset",
+                "wire": "_offset"
+            },
+            {
+                "name": "purpose",
+                "wire": "purpose"
+            },
+            {
+                "name": "sampling_point",
+                "wire": "samplingPoint"
+            },
+            {
+                "name": "start_date",
+                "wire": "startDate"
+            },
+            {
+                "name": "water_body",
+                "wire": "waterBody"
+            }
+        ],
         "auth": null,
         "status": 200,
         "sample": {
             "@context": "x",
             "meta": {
-                "count": 1,
-                "documentation": "x",
+                "publisher": "x",
                 "licence": "x",
+                "documentation": "x",
+                "version": "x",
                 "limit": 1,
                 "offset": 1,
-                "publisher": "x",
-                "version": "x"
+                "count": 1
             },
             "items": [
                 {
                     "@id": "x",
-                    "determinand": {
+                    "samplingPoint": {
                         "@id": "x",
-                        "definition": "x",
                         "label": "x",
                         "notation": "x",
+                        "lat": 1,
+                        "long": 1,
+                        "easting": 1,
+                        "northing": 1
+                    },
+                    "determinand": {
+                        "@id": "x",
+                        "label": "x",
+                        "notation": "x",
+                        "definition": "x",
                         "unit": {
                             "label": "x"
                         }
                     },
-                    "purpose": {
-                        "label": "x"
-                    },
                     "result": 1,
                     "resultQualifier": {
-                        "label": "x",
-                        "notation": "x"
+                        "notation": "x",
+                        "label": "x"
                     },
                     "sample": {
                         "sampleDateTime": "2026-01-01T00:00:00Z",
@@ -79,14 +133,8 @@ const PLAN = [
                             "label": "x"
                         }
                     },
-                    "samplingPoint": {
-                        "@id": "x",
-                        "easting": 1,
-                        "label": "x",
-                        "lat": 1,
-                        "long": 1,
-                        "northing": 1,
-                        "notation": "x"
+                    "purpose": {
+                        "label": "x"
                     }
                 }
             ]

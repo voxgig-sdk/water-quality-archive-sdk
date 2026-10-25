@@ -9,7 +9,7 @@ import { createLiveTransport } from '../../live-runner'
 import { runLiveEntity } from '../../live-entity'
 
 
-import { WaterQualityArchiveSDK, BaseFeature, stdutil } from '../../..'
+import { WaterQualityArchiveSDK, BaseFeature, config, stdutil } from '../../..'
 
 import {
   envOverride,
@@ -41,6 +41,64 @@ describe('MeasurementEntity', async () => {
   })
 
 
+  class FailHook extends BaseFeature {
+    name = 'failhook'
+    version = '0.0.1'
+    active = true
+    unexpected = 0
+    init() { }
+    PreSpec() { throw new Error('measurement hook failed') }
+    PreUnexpected() { this.unexpected++ }
+  }
+
+  test('stream-error', async () => {
+    const offline = { net: { offline: true } }
+    await assert.rejects(async () => {
+      for await (const _item of WaterQualityArchiveSDK.test(offline).Measurement().stream('list')) { }
+    }, /offline/)
+
+    for await (const _item of WaterQualityArchiveSDK.test(offline).Measurement()
+      .stream('list', undefined, { ctrl: { throw: false } })) { }
+
+    if (null != (config as any).feature?.rbac) {
+      const denied = WaterQualityArchiveSDK.test(undefined, { feature: { rbac: { active: true, deny: true } } })
+      await assert.rejects(async () => {
+        for await (const _item of denied.Measurement().stream('list')) { }
+      }, (err: any) => 'rbac_denied' === err.code)
+    }
+  })
+
+  test('stream-ctrl', async () => {
+    const explain: any = {}
+    const ctrl: any = { explain }
+    for await (const _item of WaterQualityArchiveSDK.test().Measurement().stream('list', undefined, { ctrl })) { }
+    assert.deepStrictEqual(Object.keys(ctrl), ['explain'])
+    assert(explain === ctrl.explain && 0 < Object.keys(explain).length)
+  })
+
+  test('unexpected', async () => {
+    const hook = new FailHook()
+    const client = new WaterQualityArchiveSDK({ feature: { test: { active: true } }, extend: [hook] })
+    await assert.rejects(client.Measurement().list(), /hook failed/)
+    assert(0 < hook.unexpected)
+
+    const fired = hook.unexpected
+    assert.strictEqual(await client.Measurement().list(undefined, { throw: false }), undefined)
+    assert(fired < hook.unexpected)
+  })
+
+  test('validate', async (t) => {
+    if (null == (config as any).feature?.validate) {
+      t.skip('feature not present in this SDK: validate')
+      return
+    }
+    const client = WaterQualityArchiveSDK.test(undefined, { feature: { validate: { active: true } } })
+    await assert.rejects(client.Measurement().list({"area":1} as any),
+      (err: any) => 'validate_failed' === err.code)
+  })
+
+
+
   test('basic', async (t) => {
 
     const live = 'TRUE' === process.env.WATER_QUALITY_ARCHIVE_TEST_LIVE
@@ -51,7 +109,7 @@ describe('MeasurementEntity', async () => {
     
     const setup = basicSetup()
     if (setup.live) {
-      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"determinand":{"a":true,"h":"Determinand","n":"determinand","r":false,"t":"`$OBJECT`","key$":"determinand","index$":0},"id":{"a":true,"h":"Id","n":"id","r":false,"sh":"Unique identifier for the measurement","t":"`$STRING`","key$":"id","index$":1},"purpose":{"a":true,"h":"Purpose","n":"purpose","r":false,"t":"`$OBJECT`","key$":"purpose","index$":2},"result":{"a":true,"h":"Result","n":"result","r":false,"sh":"Measurement result value","t":"`$NUMBER`","key$":"result","index$":3},"resultQualifier":{"a":true,"h":"Result Qualifier","n":"resultQualifier","r":false,"t":"`$OBJECT`","key$":"resultQualifier","index$":4},"sample":{"a":true,"h":"Sample","n":"sample","r":false,"t":"`$OBJECT`","key$":"sample","index$":5},"samplingPoint":{"a":true,"h":"Sampling Point","n":"samplingPoint","r":false,"t":"`$OBJECT`","key$":"samplingPoint","index$":6}},"id":{"field":"id","name":"id"},"name":"measurement","op":{"list":{"input":"data","name":"list","points":[{"a":true,"co":{"id":"GET /data/measurement","source":"openapi3","version":2},"g":{"query":[{"a":true,"k":"query","n":"area","or":"area","r":false,"t":"`$STRING`","index$":0},{"a":true,"k":"query","n":"determinand","or":"determinand","r":false,"t":"`$STRING`","index$":1},{"a":true,"k":"query","n":"end_date","or":"endDate","r":false,"t":"`$STRING`","index$":2},{"a":true,"ex":"json","k":"query","n":"format","or":"format","r":false,"t":"`$STRING`","index$":3},{"a":true,"ex":100,"k":"query","n":"limit","or":"_limit","r":false,"t":"`$INTEGER`","index$":4},{"a":true,"ex":0,"k":"query","n":"offset","or":"_offset","r":false,"t":"`$INTEGER`","index$":5},{"a":true,"k":"query","n":"purpose","or":"purpose","r":false,"t":"`$STRING`","index$":6},{"a":true,"k":"query","n":"sampling_point","or":"samplingPoint","r":false,"t":"`$STRING`","index$":7},{"a":true,"k":"query","n":"start_date","or":"startDate","r":false,"t":"`$STRING`","index$":8},{"a":true,"k":"query","n":"water_body","or":"waterBody","r":false,"t":"`$STRING`","index$":9}]},"k":"http","m":"GET","o":"/data/measurement","q":{"exist":["area","determinand","end_date","format","limit","offset","purpose","sampling_point","start_date","water_body"]},"r":{},"s":[{"lit":"data"},{"lit":"measurement"}],"t":{"req":"`reqdata`","res":"`body.items`"},"index$":0}],"key$":"list"}},"relations":{"ancestors":[]},"key$":"measurement","name__orig":"measurement","Name":"Measurement","name_":"measurement","name-":"measurement","NAME":"MEASUREMENT","index$":0}, {"active":true,"entity":"measurement","key$":"BasicMeasurementFlow","kind":"basic","name":"BasicMeasurementFlow","param":{},"step":[{"a":true,"d":{},"i":{},"m":{},"o":"list","s":[],"v":[{"apply":"ItemExists","def":{"ref":"measurement_ref01"}}],"index$":0}]}, 'Measurement', {"GET /data/measurement":{"protocol":"http","parameters":[{"name":"samplingPoint","in":"query","description":"Filter by sampling point identifier","required":false,"schema":{"type":"string"},"index$":0},{"name":"determinand","in":"query","description":"Filter by determinand (water quality parameter) identifier","required":false,"schema":{"type":"string"},"index$":1},{"name":"startDate","in":"query","description":"Start date for measurement period (ISO 8601 format)","required":false,"schema":{"type":"string","format":"date"},"index$":2},{"name":"endDate","in":"query","description":"End date for measurement period (ISO 8601 format)","required":false,"schema":{"type":"string","format":"date"},"index$":3},{"name":"area","in":"query","description":"Filter by geographical area","required":false,"schema":{"type":"string"},"index$":4},{"name":"waterBody","in":"query","description":"Filter by water body identifier","required":false,"schema":{"type":"string"},"index$":5},{"name":"purpose","in":"query","description":"Filter by monitoring purpose (e.g., compliance, investigation)","required":false,"schema":{"type":"string","enum":["compliance","investigation","surveillance","operational"]},"index$":6},{"name":"format","in":"query","description":"Response format","required":false,"schema":{"type":"string","enum":["json","csv","xml"],"default":"json"},"index$":7},{"name":"_limit","in":"query","description":"Maximum number of results to return","required":false,"schema":{"type":"integer","minimum":1,"maximum":10000,"default":100},"index$":8},{"name":"_offset","in":"query","description":"Number of results to skip for pagination","required":false,"schema":{"type":"integer","minimum":0,"default":0},"index$":9}]}})
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"determinand":{"a":true,"h":"Determinand","n":"determinand","r":false,"t":"`$OBJECT`","key$":"determinand","index$":0},"id":{"a":true,"h":"Id","n":"id","r":false,"sh":"Unique identifier for the measurement","t":"`$STRING`","key$":"id","index$":1},"purpose":{"a":true,"h":"Purpose","n":"purpose","r":false,"t":"`$OBJECT`","key$":"purpose","index$":2},"result":{"a":true,"h":"Result","n":"result","r":false,"sh":"Measurement result value","t":"`$NUMBER`","key$":"result","index$":3},"resultQualifier":{"a":true,"h":"Result Qualifier","n":"resultQualifier","r":false,"t":"`$OBJECT`","key$":"resultQualifier","index$":4},"sample":{"a":true,"h":"Sample","n":"sample","r":false,"t":"`$OBJECT`","key$":"sample","index$":5},"samplingPoint":{"a":true,"h":"Sampling Point","n":"samplingPoint","r":false,"t":"`$OBJECT`","key$":"samplingPoint","index$":6}},"id":{"field":"id","name":"id"},"name":"measurement","op":{"list":{"input":"data","name":"list","points":[{"a":true,"co":{"id":"GET /data/measurement","source":"openapi3","version":2},"g":{"query":[{"a":true,"k":"query","n":"area","or":"area","r":false,"t":"`$STRING`","index$":0},{"a":true,"k":"query","n":"determinand","or":"determinand","r":false,"t":"`$STRING`","index$":1},{"a":true,"k":"query","n":"end_date","or":"endDate","r":false,"t":"`$STRING`","index$":2},{"a":true,"ex":"json","k":"query","n":"format","or":"format","r":false,"t":"`$STRING`","index$":3},{"a":true,"ex":100,"k":"query","n":"limit","or":"_limit","r":false,"t":"`$INTEGER`","index$":4},{"a":true,"ex":0,"k":"query","n":"offset","or":"_offset","r":false,"t":"`$INTEGER`","index$":5},{"a":true,"k":"query","n":"purpose","or":"purpose","r":false,"t":"`$STRING`","index$":6},{"a":true,"k":"query","n":"sampling_point","or":"samplingPoint","r":false,"t":"`$STRING`","index$":7},{"a":true,"k":"query","n":"start_date","or":"startDate","r":false,"t":"`$STRING`","index$":8},{"a":true,"k":"query","n":"water_body","or":"waterBody","r":false,"t":"`$STRING`","index$":9}]},"k":"http","m":"GET","o":"/data/measurement","q":{},"r":{},"rs":{"alternatives":[{"kind":"raw","media":"application/xml"},{"kind":"raw","media":"text/csv"}],"kind":"json","media":"application/json"},"s":[{"lit":"data"},{"lit":"measurement"}],"t":{"req":"`reqdata`","res":"`body.items`"},"index$":0}],"key$":"list"}},"relations":{"ancestors":[]},"key$":"measurement","name__orig":"measurement","Name":"Measurement","name_":"measurement","name-":"measurement","NAME":"MEASUREMENT","index$":0}, {"active":true,"entity":"measurement","key$":"BasicMeasurementFlow","kind":"basic","name":"BasicMeasurementFlow","param":{},"step":[{"a":true,"d":{},"i":{},"m":{},"o":"list","s":[],"v":[{"apply":"ItemExists","def":{"ref":"measurement_ref01"}}],"index$":0}]}, 'Measurement', {"GET /data/measurement":{"protocol":"http","parameters":[{"name":"samplingPoint","in":"query","description":"Filter by sampling point identifier","required":false,"schema":{"type":"string"},"index$":0},{"name":"determinand","in":"query","description":"Filter by determinand (water quality parameter) identifier","required":false,"schema":{"type":"string"},"index$":1},{"name":"startDate","in":"query","description":"Start date for measurement period (ISO 8601 format)","required":false,"schema":{"type":"string","format":"date"},"index$":2},{"name":"endDate","in":"query","description":"End date for measurement period (ISO 8601 format)","required":false,"schema":{"type":"string","format":"date"},"index$":3},{"name":"area","in":"query","description":"Filter by geographical area","required":false,"schema":{"type":"string"},"index$":4},{"name":"waterBody","in":"query","description":"Filter by water body identifier","required":false,"schema":{"type":"string"},"index$":5},{"name":"purpose","in":"query","description":"Filter by monitoring purpose (e.g., compliance, investigation)","required":false,"schema":{"type":"string","enum":["compliance","investigation","surveillance","operational"]},"index$":6},{"name":"format","in":"query","description":"Response format","required":false,"schema":{"type":"string","enum":["json","csv","xml"],"default":"json"},"index$":7},{"name":"_limit","in":"query","description":"Maximum number of results to return","required":false,"schema":{"type":"integer","minimum":1,"maximum":10000,"default":100},"index$":8},{"name":"_offset","in":"query","description":"Number of results to skip for pagination","required":false,"schema":{"type":"integer","minimum":0,"default":0},"index$":9}]}}, { strict: LIVE_STRICT, t })
     }
     const client = setup.client
     const struct = setup.struct
@@ -72,6 +130,12 @@ describe('MeasurementEntity', async () => {
 })
 
 
+
+// main.kit.test.live.strict is true (the default is true): a live
+// request that fails, or a live test missing an input it needs,
+// fails the test.
+// An account with no record for a test to read skips it either way.
+const LIVE_STRICT = true
 
 function basicSetup(extra?: any) {
   // TODO: fix test def options

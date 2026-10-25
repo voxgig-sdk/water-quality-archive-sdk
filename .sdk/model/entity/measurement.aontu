@@ -146,19 +146,19 @@ main: kit: entity: measurement: {
           }
           m: "GET"
           o: "/data/measurement"
-          q: {
-            exist: [
-              "area"
-              "determinand"
-              "end_date"
-              "format"
-              "limit"
-              "offset"
-              "purpose"
-              "sampling_point"
-              "start_date"
-              "water_body"
+          rs: {
+            alternatives: [
+              {
+                kind: "raw"
+                media: "application/xml"
+              }
+              {
+                kind: "raw"
+                media: "text/csv"
+              }
             ]
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {

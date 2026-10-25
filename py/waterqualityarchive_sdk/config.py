@@ -96,6 +96,7 @@ def make_config():
         },
         "optspec": {
           "clearTimer": "`$FUNCTION`",
+          "now": "`$FUNCTION`",
           "setTimer": "`$FUNCTION`",
         },
         "strict": False,
@@ -196,6 +197,7 @@ def make_config():
                       "orig": "determinand",
                       "type": "`$STRING`",
                       "kind": "query",
+                      "field": True,
                     },
                     {
                       "name": "end_date",
@@ -229,6 +231,7 @@ def make_config():
                       "orig": "purpose",
                       "type": "`$STRING`",
                       "kind": "query",
+                      "field": True,
                     },
                     {
                       "name": "sampling_point",
@@ -250,19 +253,20 @@ def make_config():
                     },
                   ],
                 },
-                "select": {
-                  "exist": [
-                    "area",
-                    "determinand",
-                    "end_date",
-                    "format",
-                    "limit",
-                    "offset",
-                    "purpose",
-                    "sampling_point",
-                    "start_date",
-                    "water_body",
+                "select": {},
+                "response": {
+                  "alternatives": [
+                    {
+                      "kind": "raw",
+                      "media": "application/xml",
+                    },
+                    {
+                      "kind": "raw",
+                      "media": "text/csv",
+                    },
                   ],
+                  "kind": "json",
+                  "media": "application/json",
                 },
               },
             ],

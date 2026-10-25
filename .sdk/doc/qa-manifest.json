@@ -3,5 +3,14 @@
     "SUMMARY.md"
   ],
   "config": ".sdk/doc/qa/vale.ini",
-  "routes": {}
+  "routes": {},
+  "quoted": {
+    "SUMMARY.md": [
+      "Measurement result value",
+      "Production server",
+      "Successful response with water quality measurements",
+      "The Water Quality Archive provides comprehensive data on water quality measurements from various sampling points across England including coastal, river, lake, and groundwater sources. It supports compliance assessment, pollution investigation, and environmental monitoring with data available dating back to 2000.",
+      "Unique identifier for the measurement"
+    ]
+  }
 }

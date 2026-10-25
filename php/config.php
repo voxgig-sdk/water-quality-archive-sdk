@@ -93,6 +93,7 @@ class WaterQualityArchiveConfig
           ],
           'optspec' => [
             'clearTimer' => '`$FUNCTION`',
+            'now' => '`$FUNCTION`',
             'setTimer' => '`$FUNCTION`',
           ],
           'strict' => false,
@@ -193,6 +194,7 @@ class WaterQualityArchiveConfig
                         'orig' => 'determinand',
                         'type' => '`$STRING`',
                         'kind' => 'query',
+                        'field' => true,
                       ],
                       [
                         'name' => 'end_date',
@@ -226,6 +228,7 @@ class WaterQualityArchiveConfig
                         'orig' => 'purpose',
                         'type' => '`$STRING`',
                         'kind' => 'query',
+                        'field' => true,
                       ],
                       [
                         'name' => 'sampling_point',
@@ -247,19 +250,20 @@ class WaterQualityArchiveConfig
                       ],
                     ],
                   ],
-                  'select' => [
-                    'exist' => [
-                      'area',
-                      'determinand',
-                      'end_date',
-                      'format',
-                      'limit',
-                      'offset',
-                      'purpose',
-                      'sampling_point',
-                      'start_date',
-                      'water_body',
+                  'select' => [],
+                  'response' => [
+                    'alternatives' => [
+                      [
+                        'kind' => 'raw',
+                        'media' => 'application/xml',
+                      ],
+                      [
+                        'kind' => 'raw',
+                        'media' => 'text/csv',
+                      ],
                     ],
+                    'kind' => 'json',
+                    'media' => 'application/json',
                   ],
                 ],
               ],

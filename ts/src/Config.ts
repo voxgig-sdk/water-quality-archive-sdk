@@ -102,6 +102,7 @@ class Config {
       },
       "optspec": {
         "clearTimer": "`$FUNCTION`",
+        "now": "`$FUNCTION`",
         "setTimer": "`$FUNCTION`"
       },
       "strict": false,
@@ -211,7 +212,8 @@ class Config {
                     "name": "determinand",
                     "orig": "determinand",
                     "type": "`$STRING`",
-                    "kind": "query"
+                    "kind": "query",
+                    "field": true
                   },
                   {
                     "name": "end_date",
@@ -244,7 +246,8 @@ class Config {
                     "name": "purpose",
                     "orig": "purpose",
                     "type": "`$STRING`",
-                    "kind": "query"
+                    "kind": "query",
+                    "field": true
                   },
                   {
                     "name": "sampling_point",
@@ -266,19 +269,20 @@ class Config {
                   }
                 ]
               },
-              "select": {
-                "exist": [
-                  "area",
-                  "determinand",
-                  "end_date",
-                  "format",
-                  "limit",
-                  "offset",
-                  "purpose",
-                  "sampling_point",
-                  "start_date",
-                  "water_body"
-                ]
+              "select": {},
+              "response": {
+                "alternatives": [
+                  {
+                    "kind": "raw",
+                    "media": "application/xml"
+                  },
+                  {
+                    "kind": "raw",
+                    "media": "text/csv"
+                  }
+                ],
+                "kind": "json",
+                "media": "application/json"
               }
             }
           ]
